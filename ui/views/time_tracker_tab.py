@@ -8,7 +8,8 @@ from PySide6.QtWidgets import (
     QPushButton, QComboBox, QLineEdit, QDateEdit, QTimeEdit, QScrollArea,
     QFrame, QGraphicsDropShadowEffect, QSizePolicy, QDialog, QTextEdit,
     QProgressBar, QMessageBox, QTabWidget, QSplitter, QListWidget,
-    QListWidgetItem, QDoubleSpinBox, QColorDialog, QAbstractItemView
+    QListWidgetItem, QDoubleSpinBox, QColorDialog, QAbstractItemView,
+    QFormLayout
 )
 from PySide6.QtCore import Qt, QDate, QTime, Signal, QRect, QRectF, QTimer, QMimeData, QEvent
 from PySide6.QtGui import QColor, QPainter, QPen, QDrag, QPainterPath, QLinearGradient, QFont
@@ -81,8 +82,7 @@ STYLE = f"""
     QPushButton#deleteBtn:hover {{ background: #f87171; color: #000; }}
 
     QLabel#weekRangeBubble {{
-        background: qlineargradient(x1:0, y1:0, x2:0, y2:1,
-            stop:0 #2c374f, stop:1 #171a24);
+        background-color: #171923;
         border: 1px solid #3f475f;
         border-radius: 18px;
         padding: 6px 18px;
@@ -1205,57 +1205,80 @@ class TaskLibraryTab(QWidget):
         btn_layout.addWidget(btn_delete)
         panel_layout.addLayout(btn_layout)
 
-        panel_layout.addWidget(QLabel("Name"))
-        self.task_name_input = QLineEdit()
-        panel_layout.addWidget(self.task_name_input)
+        tabs = QTabWidget()
+        tabs.setDocumentMode(True)
+        tabs.setTabPosition(QTabWidget.North)
+        tabs.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
+        tabs.setStyleSheet("QTabWidget::pane { border: none; } QTabBar::tab { padding: 4px 10px; font-weight: 600; }")
 
-        panel_layout.addWidget(QLabel("Category"))
+        # Build task detail tab
+        detail_tab = QWidget()
+        detail_layout = QVBoxLayout(detail_tab)
+        detail_layout.setContentsMargins(0, 0, 0, 0)
+        detail_layout.setSpacing(12)
+
+        form_layout = QFormLayout()
+        form_layout.setLabelAlignment(Qt.AlignLeft)
+        form_layout.setFormAlignment(Qt.AlignLeft | Qt.AlignTop)
+        form_layout.setHorizontalSpacing(10)
+        form_layout.setVerticalSpacing(6)
+
+        self.task_name_input = QLineEdit()
+        form_layout.addRow("Name", self.task_name_input)
+
         self.task_category_combo = QComboBox()
         self.task_category_combo.setEditable(True)
-        panel_layout.addWidget(self.task_category_combo)
+        form_layout.addRow("Category", self.task_category_combo)
 
-        panel_layout.addWidget(QLabel("Color"))
-        task_color_row = QHBoxLayout()
+        color_widget = QWidget()
+        color_widget.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Minimum)
+        color_widget_layout = QHBoxLayout(color_widget)
+        color_widget_layout.setContentsMargins(0, 0, 0, 0)
+        color_widget_layout.setSpacing(6)
         self.task_color_input = QLineEdit()
-        task_color_row.addWidget(self.task_color_input, 1)
+        color_widget_layout.addWidget(self.task_color_input, 1)
         self.task_color_preview = QLabel()
         self.task_color_preview.setFixedSize(24, 24)
         self.task_color_preview.setStyleSheet("border: 1px solid #27272a; border-radius: 4px;")
-        task_color_row.addWidget(self.task_color_preview)
+        color_widget_layout.addWidget(self.task_color_preview)
         btn_task_color = QPushButton("Pick")
         btn_task_color.clicked.connect(self._pick_task_color)
-        task_color_row.addWidget(btn_task_color)
-        panel_layout.addLayout(task_color_row)
+        color_widget_layout.addWidget(btn_task_color)
         self.task_color_input.textChanged.connect(self._update_task_color_preview)
+        form_layout.addRow("Color", color_widget)
 
-        panel_layout.addWidget(QLabel("Tags"))
         self.task_tags_input = QLineEdit()
         self.task_tags_input.setPlaceholderText("Comma-separated tags")
-        panel_layout.addWidget(self.task_tags_input)
+        form_layout.addRow("Tags", self.task_tags_input)
 
-        duration_row = QHBoxLayout()
-        duration_row.addWidget(QLabel("Default duration (h)"))
         self.task_duration_spin = QDoubleSpinBox()
         self.task_duration_spin.setRange(0.0, 24.0)
         self.task_duration_spin.setSingleStep(0.25)
-        duration_row.addWidget(self.task_duration_spin)
-        panel_layout.addLayout(duration_row)
+        form_layout.addRow("Default duration (h)", self.task_duration_spin)
 
-        panel_layout.addWidget(QLabel("Description"))
         self.task_desc_input = QTextEdit()
         self.task_desc_input.setFixedHeight(90)
-        panel_layout.addWidget(self.task_desc_input)
-
+        detail_layout.addLayout(form_layout)
+        detail_layout.addWidget(QLabel("Description"))
+        detail_layout.addWidget(self.task_desc_input)
         self.task_preview = QLabel("Select a task to preview metadata.")
         self.task_preview.setWordWrap(True)
         self.task_preview.setStyleSheet("padding: 8px; border: 1px solid #2d2d2d; border-radius: 8px; background: #111; color: #fff;")
-        panel_layout.addWidget(self.task_preview)
+        detail_layout.addWidget(QLabel("Preview"))
+        detail_layout.addWidget(self.task_preview)
+        detail_layout.addStretch()
+        tabs.addTab(detail_tab, "Details")
 
-        panel_layout.addWidget(QLabel("Subtasks"))
+        # Build subtasks tab
+        subtask_tab = QWidget()
+        subtask_layout = QVBoxLayout(subtask_tab)
+        subtask_layout.setContentsMargins(0, 0, 0, 0)
+        subtask_layout.setSpacing(8)
+
         self.subtask_list = QListWidget()
         self.subtask_list.setSelectionMode(QAbstractItemView.SingleSelection)
         self.subtask_list.currentItemChanged.connect(self._on_subtask_selected)
-        panel_layout.addWidget(self.subtask_list, 1)
+        subtask_layout.addWidget(self.subtask_list, 1)
 
         subtask_row = QHBoxLayout()
         self.subtask_title_input = QLineEdit()
@@ -1266,7 +1289,7 @@ class TaskLibraryTab(QWidget):
         self.subtask_estimate_input.setSingleStep(0.25)
         self.subtask_estimate_input.setSuffix(" h")
         subtask_row.addWidget(self.subtask_estimate_input, 1)
-        panel_layout.addLayout(subtask_row)
+        subtask_layout.addLayout(subtask_row)
 
         subtask_btns = QHBoxLayout()
         btn_sub_add = QPushButton("Add Subtask")
@@ -1278,7 +1301,11 @@ class TaskLibraryTab(QWidget):
         subtask_btns.addWidget(btn_sub_add)
         subtask_btns.addWidget(btn_sub_update)
         subtask_btns.addWidget(btn_sub_remove)
-        panel_layout.addLayout(subtask_btns)
+        subtask_layout.addLayout(subtask_btns)
+        subtask_layout.addStretch()
+        tabs.addTab(subtask_tab, "Subtasks")
+
+        panel_layout.addWidget(tabs, 2)
 
         self.task_save_btn = QPushButton("Save Task")
         self.task_save_btn.clicked.connect(self._save_task)

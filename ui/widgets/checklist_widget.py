@@ -44,8 +44,8 @@ class ChecklistRuleRow(QFrame):
 
     def _build_ui(self, text, owner, due, status):
         layout = QHBoxLayout(self)
-        layout.setContentsMargins(10, 6, 10, 6)
-        layout.setSpacing(10)
+        layout.setContentsMargins(6, 4, 6, 4)
+        layout.setSpacing(8)
         self.setStyleSheet("""
 QFrame#checklistRule {
     background: rgba(255, 255, 255, 0.04);
@@ -59,7 +59,7 @@ QFrame#checklistRule:pressed {
 
         self.text_edit = QLineEdit(text)
         self.text_edit.setPlaceholderText("Rule")
-        self.text_edit.setStyleSheet("border: none; background: transparent; color: #f8fafc;")
+        self.text_edit.setStyleSheet("border: none; background: transparent; color: #f8fafc; font-size: 12px;")
         self.text_edit.textChanged.connect(self.changed.emit)
         layout.addWidget(self.text_edit, stretch=2)
 
@@ -73,6 +73,7 @@ QFrame#checklistRule:pressed {
         self.due_edit.setPlaceholderText("Due")
         self.due_edit.setMaximumWidth(110)
         self.due_edit.textChanged.connect(self.changed.emit)
+        self.due_edit.setStyleSheet("font-size: 11px;")
         layout.addWidget(self.due_edit)
 
         self.status_combo = QComboBox()
@@ -413,10 +414,12 @@ class ChecklistWidget(QWidget):
         self.scroll = QScrollArea()
         self.scroll.setWidgetResizable(True)
         self.scroll.setFrameShape(QFrame.NoFrame)
+        self.scroll.setVerticalScrollBarPolicy(Qt.ScrollBarAsNeeded)
+        self.scroll.setMinimumHeight(320)
 
         self.container = QWidget()
         self.card_layout = QVBoxLayout(self.container)
-        self.card_layout.setSpacing(8)
+        self.card_layout.setSpacing(6)
         self.card_layout.setContentsMargins(0, 0, 0, 0)
         self.card_layout.addStretch()
         self.scroll.setWidget(self.container)

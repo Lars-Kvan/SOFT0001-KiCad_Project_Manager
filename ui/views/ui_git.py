@@ -141,6 +141,12 @@ class GitTab(QWidget):
         self.log_rows = []
         self.setup_ui()
 
+    def _git_section_style(self, border_color, muted_color, bg_color, title_bg):
+        return (
+            f"QGroupBox {{ border: 1px solid {border_color}; border-radius: 12px; margin-top: 0.8em; padding: 20px 16px 16px; background-color: {bg_color}; }} "
+            f"QGroupBox::title {{ subcontrol-origin: margin; subcontrol-position: top left; left: 16px; padding: 2px 14px; color: {muted_color}; font-size: 10pt; font-weight: 600; letter-spacing: 0.35px; background-color: {title_bg}; border-radius: 12px; border: 1px solid {border_color}; border-bottom: none; margin: -18px 0 0 0; }}"
+        )
+
     def setup_ui(self):
         layout = QVBoxLayout(self)
         apply_layout(layout, margin=PAGE_PADDING, spacing="md")
@@ -151,6 +157,9 @@ class GitTab(QWidget):
         is_dark = theme in ["Dark"]
         card_border = "#2F353D" if is_dark else "#EDE6DC"
         muted = "#9CA3AF" if is_dark else "#6B7280"
+        section_bg = "#161A1F" if is_dark else "#FFFFFF"
+        title_bg = "rgba(255, 255, 255, 0.12)" if is_dark else "rgba(16, 24, 32, 0.06)"
+        section_style = self._git_section_style(card_border, muted, section_bg, title_bg)
 
         # Toolbar
         toolbar = QHBoxLayout()
@@ -206,10 +215,7 @@ class GitTab(QWidget):
         left_layout.setSpacing(10)
 
         gb_status = QGroupBox("Changed Files")
-        gb_status.setStyleSheet(
-            f"QGroupBox {{ border: 1px solid {card_border}; border-radius: 10px; margin-top: 0.6em; }}"
-            f"QGroupBox::title {{ subcontrol-origin: margin; left: 10px; padding: 0 4px; color: {muted}; font-weight: 600; }}"
-        )
+        gb_status.setStyleSheet(section_style)
         l_status = QVBoxLayout(gb_status)
         self.list_status.setStyleSheet("border: none; background: transparent;")
         l_status.addWidget(self.list_status)
@@ -226,10 +232,7 @@ class GitTab(QWidget):
 
         # Commit Area
         gb_commit = QGroupBox("Commit")
-        gb_commit.setStyleSheet(
-            f"QGroupBox {{ border: 1px solid {card_border}; border-radius: 10px; margin-top: 0.6em; }}"
-            f"QGroupBox::title {{ subcontrol-origin: margin; left: 10px; padding: 0 4px; color: {muted}; font-weight: 600; }}"
-        )
+        gb_commit.setStyleSheet(section_style)
         l_commit = QVBoxLayout(gb_commit)
         self.msg_edit = QTextEdit()
         self.msg_edit.setPlaceholderText("Enter commit message...")
@@ -256,10 +259,7 @@ class GitTab(QWidget):
 
         # Log Area
         gb_log = QGroupBox("Recent History (Log)")
-        gb_log.setStyleSheet(
-            f"QGroupBox {{ border: 1px solid {card_border}; border-radius: 10px; margin-top: 0.6em; }}"
-            f"QGroupBox::title {{ subcontrol-origin: margin; left: 10px; padding: 0 4px; color: {muted}; font-weight: 600; }}"
-        )
+        gb_log.setStyleSheet(section_style)
         l_log = QVBoxLayout(gb_log)
         self.table_log = QTableWidget()
         self.table_log.setColumnCount(5)
@@ -524,12 +524,29 @@ class GitTab(QWidget):
 
     def git_commit_signoff(self):
         """Commit with a signed-off-by trailer (git commit -s)."""
+        self._prefill_signoff_message()
         if not self.msg_edit.toPlainText().strip(): return QMessageBox.warning(self, "Error", "Enter commit message.")
         if not self.repo_path or not os.path.isdir(self.repo_path):
             return QMessageBox.warning(self, "Error", "No repository selected.")
         self._stage_all_quiet()
         self.run_git_async(['commit', '-s', '-m', self.msg_edit.toPlainText()], self.on_op_finish)
         self.msg_edit.clear()
+
+    def _prefill_signoff_message(self):
+        if self.msg_edit.toPlainText().strip():
+            return
+        name = self._git_config_value('user.name') or self.logic.settings.get('git_user_name') or self.logic.settings.get('user_name') or "Contributor"
+        timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        self.msg_edit.setPlainText(f"Sign-off by {name} on {timestamp}")
+
+    def _git_config_value(self, key):
+        if not self.repo_path:
+            return ""
+        try:
+            res = subprocess.run(['git', 'config', '--get', key], cwd=self.repo_path, capture_output=True, text=True, check=True)
+            return res.stdout.strip()
+        except Exception:
+            return ""
 
     def git_pull(self): self.run_git_async(['pull'], self.on_op_finish)
     def git_push(self): self.run_git_async(['push'], self.on_op_finish)
@@ -842,7 +859,7 @@ class GitOverviewList(QWidget):
 
     def _display_repo_detail(self, repo):
         repo_name = repo.get("name") or "Repository"
-        repo_type = repo.get("type", "unknown").title()
+        repo_type = repo.get("project_type") or repo.get("type", "unknown").title()
         self.repo_header.setText(f"{repo_name} · {repo_type}")
         path = repo.get("path", "")
         source = repo.get("source", "").title() or "Manual"

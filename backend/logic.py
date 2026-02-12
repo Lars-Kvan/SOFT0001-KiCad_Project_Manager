@@ -987,6 +987,16 @@ class AppLogic:
         repos = []
         seen = set()
 
+        def _format_project_name(meta, key):
+            base = meta.get("name") or key
+            parts = []
+            if meta.get("number"):
+                parts.append(meta["number"])
+            if meta.get("type"):
+                parts.append(meta["type"])
+            parts.append(base)
+            return " · ".join(part for part in parts if part)
+
         def add_repo(entry, allow_missing=False):
             raw_path = entry.get("path", "")
             resolved = self.resolve_path(raw_path)
@@ -1019,31 +1029,33 @@ class AppLogic:
             same_as_loc = meta.get("git_same_as_location", True)
             repo_path = git_dir if git_dir and not same_as_loc else location
             add_repo({
-                "name": f"Project: {meta.get('name', key)}",
+                "name": _format_project_name(meta, key),
                 "path": repo_path,
                 "type": "project",
                 "source": "project",
                 "project_key": key,
                 "project_location": self.resolve_path(location),
+                "project_number": meta.get("number"),
+                "project_type": meta.get("type"),
             }, allow_missing=True)
 
         symbol_roots = self.resolve_path_list(self.settings.get("symbol_path", ""))
-        for idx, root in enumerate(symbol_roots):
+        for root in symbol_roots:
             if not root:
                 continue
             add_repo({
-                "name": f"Symbols Root {idx + 1}",
+                "name": "Symbol",
                 "path": root,
                 "type": "symbol",
                 "source": "symbol",
             })
 
         footprint_roots = self.resolve_path_list(self.settings.get("footprint_path", ""))
-        for idx, root in enumerate(footprint_roots):
+        for root in footprint_roots:
             if not root:
                 continue
             add_repo({
-                "name": f"Footprints Root {idx + 1}",
+                "name": "Footprint",
                 "path": root,
                 "type": "footprint",
                 "source": "footprint",

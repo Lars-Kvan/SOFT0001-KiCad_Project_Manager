@@ -128,6 +128,16 @@ class ProjectManagerTab(QWidget):
         lbl_sort.setToolTip("Sort")
         filter_row.addWidget(lbl_sort)
         filter_row.addWidget(self.sort_proj)
+        # Allow dropdowns to expand so their menus stay usable
+        for combo in (self.filter_type, self.filter_status, self.sort_proj):
+            combo.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Fixed)
+            combo.setMinimumWidth(140)
+        self.filter_tags.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Fixed)
+        self.filter_tags.setMinimumWidth(180)
+        filter_row.setStretch(1, 1)
+        filter_row.setStretch(3, 1)
+        filter_row.setStretch(5, 2)
+        filter_row.setStretch(7, 1)
         top_layout.addLayout(filter_row)
 
         # Quick Filter Chips
@@ -1379,7 +1389,6 @@ class ProjectManagerTab(QWidget):
             current_meta = self.logic.settings["project_registry"][name]["metadata"]
             current_meta.update(meta)
             self.logic.save_settings()
-            QMessageBox.information(self, "Success", "Project metadata saved.")
             self.refresh_paths()
 
     def closeEvent(self, event):

@@ -2,7 +2,7 @@ import os
 import pathlib
 import subprocess
 from PySide6.QtWidgets import (QWidget, QVBoxLayout, QGroupBox, QFormLayout, 
-                              QLineEdit, QComboBox, QTextEdit, QPushButton, QMessageBox, QHBoxLayout, QFileDialog, QLabel,
+                              QLineEdit, QComboBox, QTextEdit, QPushButton, QHBoxLayout, QFileDialog, QLabel,
                               QTextBrowser, QToolButton, QStackedWidget, QCheckBox)
 from PySide6.QtCore import Qt, QThread, Signal
 try:
@@ -137,20 +137,16 @@ class ProjectStatusView(QWidget):
         form.addRow("Current Status:", self.combo_proj_status)
         form.addRow("Project Type:", self.edit_proj_type)
         form.addRow("Folder Location:", loc_widget)
-        same_row = QWidget()
-        same_layout = QHBoxLayout(same_row)
-        same_layout.setContentsMargins(0, 0, 0, 0)
-        same_layout.addWidget(self.chk_git_same_loc)
-        same_layout.addStretch()
-        form.addRow("", same_row)
+        git_row = QWidget()
+        git_row_layout = QHBoxLayout(git_row)
+        git_row_layout.setContentsMargins(0, 0, 0, 0)
+        git_row_layout.setSpacing(8)
+        git_row_layout.addWidget(git_dir_widget, 1)
+        git_row_layout.addWidget(self.chk_git_same_loc)
+        git_row_layout.addStretch()
+        form.addRow("Git Directory:", git_row)
         form.addRow("Main Schematic:", sch_widget)
         form.addRow("Layout File:", layout_widget)
-        git_container = QWidget()
-        git_container_layout = QVBoxLayout(git_container)
-        git_container_layout.setContentsMargins(0,0,0,0)
-        git_container_layout.setSpacing(4)
-        git_container_layout.addWidget(git_dir_widget)
-        form.addRow("Git Directory:", git_container)
 
         desc_tools = QHBoxLayout()
         btn_bold = QToolButton(); btn_bold.setText("B"); btn_bold.setToolTip("Bold"); btn_bold.clicked.connect(lambda: self._wrap_markdown("**"))
@@ -413,7 +409,6 @@ class ProjectStatusView(QWidget):
         meta = self.get_data()
         self.logic.settings["project_metadata"] = meta
         self.logic.save_settings()
-        QMessageBox.information(self, "Success", "Project metadata saved.")
 
     def check_git_status(self):
         git_dir = self.edit_git_dir.text().strip()

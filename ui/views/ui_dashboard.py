@@ -1,7 +1,23 @@
 import os
-from PySide6.QtWidgets import (QWidget, QVBoxLayout, QHBoxLayout, QLabel, 
-                             QGroupBox, QListWidget, QListWidgetItem, QProgressBar, QToolButton,
-                             QFrame, QGridLayout, QPushButton, QTableWidget, QTableWidgetItem, QHeaderView)
+
+from PySide6.QtWidgets import (
+    QWidget,
+    QVBoxLayout,
+    QHBoxLayout,
+    QLabel,
+    QGroupBox,
+    QListWidget,
+    QListWidgetItem,
+    QProgressBar,
+    QToolButton,
+    QFrame,
+    QGridLayout,
+    QPushButton,
+    QTableWidget,
+    QTableWidgetItem,
+    QHeaderView,
+    QSplitter,
+)
 from PySide6.QtCore import Qt, Signal
 from PySide6.QtGui import QColor, QIcon
 try:
@@ -30,59 +46,66 @@ class DashboardTab(QWidget):
         theme = self.logic.settings.get("theme", "Light")
         self.icon_color = "#E0E0E0" if theme in ["Dark"] else "#555555"
 
-        # Welcome / Stats Row
-        stats_layout = QHBoxLayout()
-        stats_layout.setSpacing(12)
+        # Stats deck
+        stats_shell = QFrame()
+        stats_shell.setObjectName("dashStats")
+        apply_elevation(stats_shell, "card")
+        stats_grid = QGridLayout(stats_shell)
+        stats_grid.setContentsMargins(14, 12, 14, 12)
+        stats_grid.setHorizontalSpacing(12)
+        stats_grid.setVerticalSpacing(12)
+
         self.stat_total = self.create_stat_card("Total Projects", "0", "#3498db", Icons.PROJECTS)
         self.stat_active = self.create_stat_card("Active Projects", "0", "#2ecc71", Icons.PLAY)
         self.stat_tasks = self.create_stat_card("Pending Tasks", "0", "#e67e22", Icons.NOTEBOOK)
         self.stat_parts = self.create_stat_card("Total Parts", "0", "#9b59b6", Icons.CHIP)
-        
-        stats_layout.addWidget(self.stat_total, 1)
-        stats_layout.addWidget(self.stat_active, 1)
-        stats_layout.addWidget(self.stat_tasks, 1)
-        stats_layout.addWidget(self.stat_parts, 1)
-        layout.addLayout(stats_layout)
+
+        stats = [self.stat_total, self.stat_active, self.stat_tasks, self.stat_parts]
+        for idx, card in enumerate(stats):
+            r, c = divmod(idx, 2)
+            stats_grid.addWidget(card, r, c)
+        layout.addWidget(stats_shell)
 
         # Main Content Split
-        content_split = QHBoxLayout()
+        content_split = QSplitter(Qt.Horizontal)
+        content_split.setChildrenCollapsible(False)
         
         # LEFT COLUMN
         left_col = QVBoxLayout()
         
         # 1. Quick Actions
         qa_gb = QGroupBox("Quick Actions")
-        qa_layout = QHBoxLayout(qa_gb)
-        
-        btn_new = QPushButton("New Project")
+        qa_layout = QGridLayout(qa_gb)
+        qa_layout.setHorizontalSpacing(10)
+        qa_layout.setVerticalSpacing(8)
+
+        def style_action(btn, primary=False):
+            btn.setMinimumHeight(38)
+            if primary:
+                btn.setObjectName("btnPrimary")
+            else:
+                btn.setObjectName("btnSecondary")
+            return btn
+
+        btn_new = style_action(QPushButton("New Project"), primary=True)
         btn_new.setIcon(Icons.get_icon(Icons.PLUS, "white"))
-        btn_new.setObjectName("btnPrimary")
         btn_new.clicked.connect(self.action_new_project)
-        btn_new.setMinimumHeight(34)
-        
-        btn_scan = QPushButton("Rescan Libraries")
+
+        btn_scan = style_action(QPushButton("Rescan Libraries"))
         btn_scan.setIcon(Icons.get_icon(Icons.RELOAD, self.icon_color))
-        btn_scan.setObjectName("btnSecondary")
         btn_scan.clicked.connect(self.action_rescan)
-        btn_scan.setMinimumHeight(34)
-        
-        btn_settings = QPushButton("Settings")
+
+        btn_settings = style_action(QPushButton("Settings"))
         btn_settings.setIcon(Icons.get_icon(Icons.SETTINGS, self.icon_color))
-        btn_settings.setObjectName("btnSecondary")
         btn_settings.clicked.connect(self.action_settings)
-        btn_settings.setMinimumHeight(34)
-        
-        btn_kicad = QPushButton("Launch KiCad")
+
+        btn_kicad = style_action(QPushButton("Launch KiCad"))
         btn_kicad.setIcon(Icons.get_icon(Icons.EXTERNAL, self.icon_color))
-        btn_kicad.setObjectName("btnSecondary")
         btn_kicad.clicked.connect(lambda: self.logic.launch_tool("kicad", ""))
-        btn_kicad.setMinimumHeight(34)
-        
-        qa_layout.addWidget(btn_scan)
-        qa_layout.addWidget(btn_settings)
-        qa_layout.addWidget(btn_kicad)
-        qa_layout.addStretch()
-        qa_layout.addWidget(btn_new)
+
+        buttons = [btn_new, btn_scan, btn_settings, btn_kicad]
+        for idx, btn in enumerate(buttons):
+            qa_layout.addWidget(btn, idx // 2, idx % 2)
         left_col.addWidget(qa_gb)
 
         # 2. Active Projects Table
@@ -92,11 +115,12 @@ class DashboardTab(QWidget):
         self.table_projects.setHorizontalHeaderLabels(["Project Name", "Status", "Last Opened"])
         self.table_projects.horizontalHeader().setSectionResizeMode(0, QHeaderView.Stretch)
         self.table_projects.setColumnWidth(1, 110)
-        self.table_projects.setColumnWidth(2, 160)
+        self.table_projects.setColumnWidth(2, 170)
         self.table_projects.setAlternatingRowColors(True)
         self.table_projects.verticalHeader().setVisible(False)
         self.table_projects.setSelectionBehavior(QTableWidget.SelectRows)
         self.table_projects.setSelectionMode(QTableWidget.SingleSelection)
+        self.table_projects.verticalHeader().setDefaultSectionSize(34)
         self.table_projects.itemDoubleClicked.connect(self.on_project_double_click)
         header = self.table_projects.horizontalHeader()
         header.setDefaultAlignment(Qt.AlignVCenter | Qt.AlignLeft)
@@ -110,6 +134,10 @@ class DashboardTab(QWidget):
             QTableWidget::item {
                 padding: 8px 10px;
                 border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+                margin: 0;
+            }
+            QTableWidget::item:hover {
+                margin: 0;
             }
             QTableWidget::item:selected {
                 background: qlineargradient(x1:0, y1:0, x2:1, y2:0,
@@ -132,7 +160,10 @@ class DashboardTab(QWidget):
         proj_layout.addWidget(self.empty_projects)
         left_col.addWidget(proj_gb)
         
-        content_split.addLayout(left_col, 3)
+        left_panel = QWidget()
+        left_panel.setLayout(left_col)
+        content_split.addWidget(left_panel)
+        content_split.setStretchFactor(content_split.indexOf(left_panel), 3)
         
         # RIGHT COLUMN
         right_col = QVBoxLayout()
@@ -148,6 +179,7 @@ class DashboardTab(QWidget):
         task_gb = QGroupBox("Urgent Tasks")
         task_layout = QVBoxLayout(task_gb)
         self.list_urgent = QListWidget()
+        self.list_urgent.setMinimumHeight(150)
         self.list_urgent.setStyleSheet("border: none; background: transparent;")
         self.list_urgent.itemDoubleClicked.connect(self.on_urgent_task_clicked)
         task_layout.addWidget(self.list_urgent)
@@ -176,8 +208,41 @@ class DashboardTab(QWidget):
         lib_layout.addWidget(btn_lib_scan)
         right_col.addWidget(lib_gb)
         
-        content_split.addLayout(right_col, 2)
-        layout.addLayout(content_split)
+        # 3. Git Repositories
+        git_gb = QGroupBox("Repository Status")
+        git_layout = QVBoxLayout(git_gb)
+        self.table_git_status = QTableWidget(0, 4)
+        self.table_git_status.setHorizontalHeaderLabels(["Repository", "Branch", "Status", "Ahead/Behind"])
+        self.table_git_status.horizontalHeader().setSectionResizeMode(0, QHeaderView.Stretch)
+        self.table_git_status.horizontalHeader().setSectionResizeMode(1, QHeaderView.ResizeToContents)
+        self.table_git_status.horizontalHeader().setSectionResizeMode(2, QHeaderView.ResizeToContents)
+        self.table_git_status.horizontalHeader().setSectionResizeMode(3, QHeaderView.ResizeToContents)
+        self.table_git_status.verticalHeader().setVisible(False)
+        self.table_git_status.setSelectionMode(QTableWidget.NoSelection)
+        self.table_git_status.setFocusPolicy(Qt.NoFocus)
+        self.table_git_status.setStyleSheet(
+            """
+            QTableWidget {
+                background: transparent;
+                border: none;
+            }
+            QTableWidget::item {
+                padding: 6px 8px;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            }
+            """
+        )
+        git_layout.addWidget(self.table_git_status)
+        self.lbl_git_summary = QLabel("")
+        self.lbl_git_summary.setStyleSheet("color: #9ca3af; font-size: 12px;")
+        git_layout.addWidget(self.lbl_git_summary)
+        right_col.addWidget(git_gb)
+        
+        right_panel = QWidget()
+        right_panel.setLayout(right_col)
+        content_split.addWidget(right_panel)
+        content_split.setStretchFactor(content_split.indexOf(right_panel), 2)
+        layout.addWidget(content_split)
 
     # --- Actions ---
     def action_new_project(self):
@@ -196,23 +261,86 @@ class DashboardTab(QWidget):
         card.val_label = card.value_label  # for compatibility
         return card
 
-    def _project_part_count(self, structure):
-        if not isinstance(structure, dict):
-            return 0
+    def _project_part_count(self, project_data):
+        structure = project_data.get("structure", {}) or {}
         total = structure.get("part_count")
         if isinstance(total, (int, float)) and total > 0:
             return int(total)
 
-        def sum_nodes(node):
-            if not node or not isinstance(node, dict):
-                return 0
-            part = int(node.get("part_count") or 0)
-            for child in node.get("children", []):
-                part += sum_nodes(child)
-            return part
-
         tree = structure.get("tree")
-        return sum_nodes(tree) if tree else 0
+        if tree:
+            return self._sum_structure_nodes(tree)
+
+        meta = project_data.get("metadata", {}) or {}
+        main_sch = meta.get("main_schematic")
+        if main_sch:
+            resolved = self.logic.resolve_path(main_sch)
+            if resolved and os.path.exists(resolved):
+                try:
+                    bom = self.logic.generate_bom(resolved)
+                    total_qty = sum(max(0, item.get("qty", 0)) for item in bom or [])
+                    return total_qty
+                except Exception:
+                    pass
+
+        return 0
+
+    def _sum_structure_nodes(self, node):
+        if not node or not isinstance(node, dict):
+            return 0
+        total = int(node.get("part_count") or 0)
+        for child in node.get("children", []):
+            total += self._sum_structure_nodes(child)
+        return total
+
+    def refresh_git_summary(self):
+        repos = self.logic.get_git_repositories()
+        self.table_git_status.setRowCount(0)
+        total = len(repos)
+        if total == 0:
+            self.lbl_git_summary.setText("No Git repositories configured.")
+            return
+
+        clean = sum(1 for repo in repos if repo.get("clean"))
+
+        for repo in repos:
+            row = self.table_git_status.rowCount()
+            self.table_git_status.insertRow(row)
+
+            repo_item = QTableWidgetItem(repo.get("name") or repo.get("path") or "Repository")
+            repo_item.setTextAlignment(Qt.AlignVCenter | Qt.AlignLeft)
+            self.table_git_status.setItem(row, 0, repo_item)
+
+            branch_item = QTableWidgetItem(repo.get("branch", "-"))
+            branch_item.setTextAlignment(Qt.AlignVCenter | Qt.AlignCenter)
+            self.table_git_status.setItem(row, 1, branch_item)
+
+            status_badge = self._create_status_badge(repo.get("clean", True))
+            self.table_git_status.setCellWidget(row, 2, status_badge)
+
+            ahead = repo.get("ahead", 0) or 0
+            behind = repo.get("behind", 0) or 0
+            sync_item = QTableWidgetItem(f"+{ahead}/-{behind}")
+            sync_item.setTextAlignment(Qt.AlignCenter)
+            self.table_git_status.setItem(row, 3, sync_item)
+
+        self.table_git_status.resizeRowsToContents()
+        dirty = total - clean
+        self.lbl_git_summary.setText(f"{clean}/{total} clean { 'repository' if total==1 else 'repositories' } ({dirty} with changes)")
+
+    def _create_status_badge(self, clean):
+        label = QLabel("Clean" if clean else "Modified")
+        label.setStyleSheet(
+            "border-radius: 8px; padding: 2px 10px; font-size: 11px;"
+            f"color: #ffffff; background-color: {'#22c55e' if clean else '#f97316'};"
+        )
+        label.setAlignment(Qt.AlignCenter)
+        badge = QWidget()
+        layout = QHBoxLayout(badge)
+        layout.setContentsMargins(0, 0, 0, 0)
+        layout.addWidget(label)
+        layout.setAlignment(Qt.AlignCenter)
+        return badge
 
     def refresh_data(self):
         registry = self.logic.settings.get("project_registry", {})
@@ -242,9 +370,7 @@ class DashboardTab(QWidget):
                         item.setData(Qt.UserRole, (p_name, t['name']))
                         urgent_tasks.append(item)
             
-            # Count parts (if structure scanned)
-            struct = p_data.get("structure", {}) or {}
-            total_parts += self._project_part_count(struct)
+            total_parts += self._project_part_count(p_data)
             
             # Collect projects for list
             all_projects_list.append(p_data["metadata"])
@@ -276,7 +402,9 @@ class DashboardTab(QWidget):
         self.list_urgent.clear()
         for t in urgent_tasks:
             self.list_urgent.addItem(t)
-            
+        
+        self.refresh_git_summary()
+        
         type_map = {
             "PCB": "PCBA",
             "Mechanical": "MECH",

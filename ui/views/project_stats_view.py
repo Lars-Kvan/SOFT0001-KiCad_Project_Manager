@@ -11,6 +11,7 @@ from PySide6.QtWidgets import (
     QProgressBar,
     QSplitter,
     QFrame,
+    QSizePolicy,
 )
 from PySide6.QtCore import Qt
 from collections import Counter
@@ -33,6 +34,7 @@ class ProjectStatsView(QWidget):
 
         stats_wrapper = QFrame()
         stats_wrapper.setObjectName("projectStatsWrapper")
+        stats_wrapper.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Minimum)
         stats_layout = QVBoxLayout(stats_wrapper)
         stats_layout.setContentsMargins(10, 10, 10, 10)
         stats_layout.setSpacing(8)
@@ -40,6 +42,11 @@ class ProjectStatsView(QWidget):
         self.summary_grid = QGridLayout()
         self.summary_grid.setHorizontalSpacing(12)
         self.summary_grid.setVerticalSpacing(12)
+        self.summary_grid.setColumnStretch(0, 1)
+        self.summary_grid.setColumnStretch(1, 1)
+        self.summary_grid.setColumnStretch(2, 1)
+        self.summary_grid.setRowStretch(0, 1)
+        self.summary_grid.setRowStretch(1, 1)
         stats_layout.addLayout(self.summary_grid)
 
         apply_layered_elevation(stats_wrapper, level="card", theme="Dark" if self.logic.settings.get("theme", "Light") in {"Dark", "Teal Sand Dark"} else "Light")
@@ -76,6 +83,7 @@ class ProjectStatsView(QWidget):
         layout.addWidget(progress_frame)
 
         splitter = QSplitter(Qt.Horizontal)
+        splitter.setChildrenCollapsible(False)
 
         left = QWidget()
         left_layout = QVBoxLayout(left)
@@ -133,6 +141,8 @@ class ProjectStatsView(QWidget):
         splitter.addWidget(left)
         splitter.addWidget(right)
         splitter.setSizes([520, 480])
+        splitter.setStretchFactor(0, 3)
+        splitter.setStretchFactor(1, 2)
         layout.addWidget(splitter)
 
     def load_data(self, project_name, data):

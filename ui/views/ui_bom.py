@@ -2,7 +2,7 @@ import csv
 import os
 from PySide6.QtWidgets import (QWidget, QVBoxLayout, QHBoxLayout, QPushButton, QCheckBox,
                              QTableWidget, QTableWidgetItem, QHeaderView, QFileDialog, QMessageBox, QLabel)
-from PySide6.QtCore import Qt
+from PySide6.QtCore import Qt, QThread, Signal
 try:
     from .resources.icons import Icons
 except ImportError:
@@ -14,6 +14,9 @@ class BOMTab(QWidget):
         self.logic = logic
         self.current_project = None
         self.bom_data = []
+        self._bom_worker = None
+        self._bom_target_path = ""
+        self.lbl_bom_status = None
         self.setup_ui()
 
     def setup_ui(self):
@@ -80,10 +83,36 @@ class BOMTab(QWidget):
         self.table.setColumnWidth(8, 80)  # Unit Price
         self.table.setColumnWidth(9, 80)  # Total Price
         
+        self.table_vertical_header = self.table.verticalHeader()
+        self.table_vertical_header.setVisible(False)
+        self.table.setStyleSheet(
+            """
+            QTableWidget {
+                background-color: transparent;
+                border: 1px solid rgba(15, 23, 42, 0.08);
+                border-radius: 12px;
+            }
+            QTableWidget::item {
+                padding: 6px 10px;
+            }
+            QTableWidget::item:selected {
+                background: qlineargradient(x1:0,y1:0,x2:1,y2:0, stop:0 rgba(56, 113, 255, 0.35), stop:1 rgba(30, 64, 175, 0.3));
+                color: #fff;
+            }
+            QTableWidget::item:alternate {
+                background-color: rgba(59, 114, 255, 0.03);
+            }
+            """
+        )
+        
         self.table.itemChanged.connect(self.on_item_changed)
         
         layout.addWidget(self.table)
         
+        self.lbl_bom_status = QLabel("")
+        self.lbl_bom_status.setStyleSheet("color: #9ca3af; font-size: 12px;")
+        layout.addWidget(self.lbl_bom_status)
+
         self.lbl_total_cost = QLabel("Total BOM Cost: $0.00")
         layout.addWidget(self.lbl_total_cost)
 
@@ -109,15 +138,7 @@ class BOMTab(QWidget):
             QMessageBox.warning(self, "BOM Generation Error", f"Main schematic file not found: {self.logic.relativize_path(sch_path)}")
             return
 
-        try:
-            bom = self.logic.generate_bom(sch_path)
-            self.bom_data = bom
-            self.populate_table()
-            self._update_row_visibility()
-        except Exception as e:
-            QMessageBox.critical(self, "BOM Generation Error", f"Failed to generate BOM: {e}")
-            self.table.setRowCount(0) # Clear table on error
-            self.bom_data = [] # Clear internal data
+        self._start_bom_worker(sch_path)
 
     def populate_table(self):
         self.table.blockSignals(True)
@@ -193,25 +214,52 @@ class BOMTab(QWidget):
         hide_excluded = self.chk_hide_excluded.isChecked()
 
         # Hide Columns
-        self.table.setColumnHidden(1, hide_dnp) # DNP Column
-        self.table.setColumnHidden(2, hide_excluded) # Excluded Column
+        self.table.setColumnHidden(1, hide_dnp)  # DNP Column
+        self.table.setColumnHidden(2, hide_excluded)  # Excluded Column
 
         for row in range(self.table.rowCount()):
-            qty = int(self.table.item(row, 0).text())
-            dnp_text = self.table.item(row, 1).text()
-            excluded_text = self.table.item(row, 2).text()
+            dnp_item = self.table.item(row, 1)
+            excluded_item = self.table.item(row, 2)
+            dnp_text = dnp_item.text().strip() if dnp_item else ""
+            excluded_text = excluded_item.text().strip() if excluded_item else ""
 
-            is_dnp_only_row = qty == 0 and dnp_text != "" and excluded_text == ""
-            has_excluded_parts = excluded_text != ""
+            hide_row = False
+            if hide_dnp and dnp_text:
+                hide_row = True
+            if hide_excluded and excluded_text:
+                hide_row = True
 
-            show_row = True
-            if hide_dnp and is_dnp_only_row:
-                show_row = False
-            
-            if hide_excluded and has_excluded_parts:
-                show_row = False
+            self.table.setRowHidden(row, hide_row)
 
-            self.table.setRowHidden(row, not show_row)
+    def _start_bom_worker(self, schematic_path):
+        self._bom_target_path = schematic_path
+        self._set_bom_loading(True, "Generating BOM…")
+        if self._bom_worker and self._bom_worker.isRunning():
+            self._bom_worker.terminate()
+        self._bom_worker = _BOMWorker(self.logic, schematic_path)
+        self._bom_worker.finished.connect(self._on_bom_ready)
+        self._bom_worker.failed.connect(self._on_bom_failed)
+        self._bom_worker.start()
+
+    def _on_bom_ready(self, bom_data, path):
+        self._set_bom_loading(False)
+        self._bom_worker = None
+        if path != self._bom_target_path:
+            return
+        self.bom_data = bom_data
+        self.populate_table()
+        self._update_row_visibility()
+
+    def _on_bom_failed(self, error, path):
+        self._set_bom_loading(False, f"Failed to generate BOM: {error}")
+        self._bom_worker = None
+        if path != self._bom_target_path:
+            return
+        QMessageBox.critical(self, "BOM Generation Error", f"Failed to generate BOM: {error}")
+
+    def _set_bom_loading(self, busy, message=""):
+        self.btn_gen.setEnabled(not busy)
+        self.lbl_bom_status.setText(message)
 
     def update_total_cost(self):
         total = 0.0
@@ -286,3 +334,20 @@ class BOMTab(QWidget):
                 
         except Exception as e:
             QMessageBox.critical(self, "Error", f"Comparison failed: {e}")
+
+
+class _BOMWorker(QThread):
+    finished = Signal(list, str)
+    failed = Signal(str, str)
+
+    def __init__(self, logic, schematic_path):
+        super().__init__()
+        self.logic = logic
+        self.schematic_path = schematic_path
+
+    def run(self):
+        try:
+            bom = self.logic.generate_bom(self.schematic_path)
+            self.finished.emit(bom, self.schematic_path)
+        except Exception as exc:
+            self.failed.emit(str(exc), self.schematic_path)

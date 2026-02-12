@@ -205,7 +205,27 @@ class RequirementsView(QWidget):
         self.table.horizontalHeader().setSectionResizeMode(COL_TEXT, QHeaderView.Stretch)
         self.table.setSelectionBehavior(QAbstractItemView.SelectRows)
         self.table.setSelectionMode(QAbstractItemView.SingleSelection)
-        self.table.verticalHeader().setDefaultSectionSize(28)
+        self.table.verticalHeader().setDefaultSectionSize(36)
+        self.table.setWordWrap(True)
+        self.table.setAlternatingRowColors(True)
+        self.table.setStyleSheet(
+            """
+            QTableWidget {
+                border: 1px solid rgba(15, 23, 42, 0.12);
+                border-radius: 12px;
+                padding: 4px;
+                background-color: rgba(255, 255, 255, 0.92);
+            }
+            QTableWidget::item {
+                padding: 6px 10px;
+            }
+            QTableWidget::item:selected {
+                background: qlineargradient(x1:0, y1:0, x2:1, y2:0,
+                    stop:0 rgba(37, 99, 235, 0.35), stop:1 rgba(14, 165, 233, 0.3));
+                color: #fff;
+            }
+            """
+        )
         self.table.itemChanged.connect(self.on_item_changed)
         self.table.itemSelectionChanged.connect(self.on_row_selected)
         wrapper_layout.addWidget(self.table)
@@ -492,6 +512,7 @@ class RequirementsView(QWidget):
                     continue
 
             self.table.setRowHidden(row, False)
+        self.table.resizeRowsToContents()
 
     def save_trigger(self):
         if self._loading or self._detail_loading or self._sub_loading:
@@ -502,7 +523,13 @@ class RequirementsView(QWidget):
         self.table.insertRow(row)
 
         id_item = QTableWidgetItem(req.get("id", f"REQ-{row + 1:03d}"))
+        id_item.setTextAlignment(Qt.AlignCenter)
+        id_item.setData(Qt.ToolTipRole, id_item.text())
+        id_item.setFlags(id_item.flags() | Qt.ItemIsEditable)
         text_item = QTableWidgetItem(req.get("text", ""))
+        text_item.setTextAlignment(Qt.AlignVCenter | Qt.AlignLeft)
+        text_item.setData(Qt.ToolTipRole, req.get("text", ""))
+        text_item.setFlags(text_item.flags() | Qt.ItemIsEditable)
         self.table.setItem(row, COL_ID, id_item)
         self.table.setItem(row, COL_TEXT, text_item)
 
@@ -528,6 +555,7 @@ class RequirementsView(QWidget):
         )
 
         self._set_row_data(row, req)
+        self.table.resizeRowToContents(row)
         return row
 
     def _make_table_combo(self, options, current, column, editable=False):

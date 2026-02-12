@@ -1,9 +1,9 @@
 import os
 from PySide6.QtWidgets import (QWidget, QVBoxLayout, QGroupBox, QHBoxLayout, 
-                             QLineEdit, QPushButton, QLabel, QTreeWidget, QTreeWidgetItem, QFileDialog, QProgressBar,
-                             QFormLayout, QToolButton)
+                              QLineEdit, QPushButton, QLabel, QTreeWidget, QTreeWidgetItem, QFileDialog, QProgressBar,
+                              QFormLayout, QToolButton)
 from PySide6.QtCore import Qt, QUrl, QThread, Signal
-from PySide6.QtGui import QDesktopServices
+from PySide6.QtGui import QDesktopServices, QColor
 from ui.widgets.progress_utils import style_progress_bar
 
 class StructureScanWorker(QThread):
@@ -157,6 +157,39 @@ class ProjectDetailsView(QWidget):
         row_layout.addWidget(btn)
         return row, label, btn
 
+    def _status_color(self, status):
+        palette = {
+            "Pre-Design": "#64748b",
+            "Schematic Capture": "#2563EB",
+            "PCB Layout": "#7c3aed",
+            "Prototyping": "#f97316",
+            "Validation": "#0ea5e9",
+            "Released": "#22c55e",
+            "Abandoned": "#ef4444",
+            "Draft": "#64748b",
+            "Review": "#2563EB",
+            "Approved": "#0ea5e9",
+            "Implemented": "#22c55e",
+            "Verified": "#14b8a6",
+            "Deprecated": "#ef4444",
+        }
+        return palette.get(status, "#2563EB")
+
+    def _gradient_style(self, accent):
+        color = QColor(accent)
+        lighter = color.lighter(150).name()
+        darker = color.darker(120).name()
+        return f"qlineargradient(x1:0, y1:0, x2:1, y2:0, stop:0 {lighter}, stop:1 {darker})"
+
+    def _set_summary_value(self, label, text, accent="#2563EB"):
+        label.setText(text or "-")
+        label.setToolTip(text)
+        gradient = self._gradient_style(accent)
+        label.setStyleSheet(
+            f"border-radius: 12px; padding: 4px 10px; font-weight: 600; color: #F8FAFC; "
+            f"background: {gradient}; border: 1px solid rgba(0, 0, 0, 0.08);"
+        )
+
     def _set_path_label(self, label, button, path):
         text = self.logic.relativize_path(path) if path else "-"
         label.setText(text)
@@ -171,9 +204,9 @@ class ProjectDetailsView(QWidget):
         schematic = meta.get("main_schematic", "")
         layout_file = meta.get("layout_file", "")
 
-        self.lbl_meta_status.setText(status)
-        self.lbl_meta_type.setText(ptype)
-        self.lbl_meta_last.setText(last)
+        self._set_summary_value(self.lbl_meta_status, status, self._status_color(status))
+        self._set_summary_value(self.lbl_meta_type, ptype, "#9d8189")
+        self._set_summary_value(self.lbl_meta_last, last, "#64748b")
         self._set_path_label(self.lbl_meta_location, self.btn_open_location, location)
         self._set_path_label(self.lbl_meta_schematic, self.btn_open_schematic, schematic)
         self._set_path_label(self.lbl_meta_layout, self.btn_open_layout, layout_file)
@@ -186,20 +219,22 @@ class ProjectDetailsView(QWidget):
             len([s for s in (r.get("sub_requirements", []) or []) if s.get("status") == "Verified"])
             for r in reqs
         )
-        self.lbl_meta_requirements.setText(
-            f"{req_total} (Verified: {req_verified}, Sub: {sub_total}, Sub Verified: {sub_verified})"
+        self._set_summary_value(
+            self.lbl_meta_requirements,
+            f"{req_total} (Verified: {req_verified}, Sub: {sub_total}, Sub Verified: {sub_verified})",
+            "#2563EB",
         )
 
         structure = data.get("structure", {}) or {}
         tree = structure.get("tree")
         sub_count = self._count_tree_nodes(tree) - 1 if tree else 0
-        self.lbl_meta_subsheets.setText(str(max(sub_count, 0)) if tree else "-")
+        self._set_summary_value(self.lbl_meta_subsheets, str(max(sub_count, 0)) if tree else "-", "#14b8a6")
 
         part_count = structure.get("part_count")
-        self.lbl_meta_parts.setText(str(part_count) if part_count is not None else "-")
+        self._set_summary_value(self.lbl_meta_parts, str(part_count) if part_count is not None else "-", "#f97316")
 
         libs = self._count_unique_libs(meta.get("main_schematic", ""))
-        self.lbl_meta_libs.setText(str(libs) if libs is not None else "-")
+        self._set_summary_value(self.lbl_meta_libs, str(libs) if libs is not None else "-", "#8b5cf6")
 
         checklist = data.get("checklist", {}) or {}
         total_rules, verified_rules, na_rules = self._checklist_counts(checklist)
@@ -209,13 +244,13 @@ class ProjectDetailsView(QWidget):
                 checklist_text += f" (N/A {na_rules})"
         else:
             checklist_text = "-"
-        self.lbl_meta_checklist.setText(checklist_text)
+        self._set_summary_value(self.lbl_meta_checklist, checklist_text, "#facc15")
 
         kanban = data.get("kanban", {}) or {}
         todo = len(kanban.get("todo", []) or [])
         prog = len(kanban.get("prog", []) or [])
         done = len(kanban.get("done", []) or [])
-        self.lbl_meta_kanban.setText(f"To Do {todo} • In Progress {prog} • Done {done}")
+        self._set_summary_value(self.lbl_meta_kanban, f"To Do {todo} • In Progress {prog} • Done {done}", "#10b981")
 
         test_plan = data.get("test_plan", {}) or {}
         t_total, t_pass, t_fail, t_na, t_not_run, t_last = self._test_plan_counts(test_plan)
@@ -225,7 +260,7 @@ class ProjectDetailsView(QWidget):
                 tp_text += f" | Last {t_last}"
         else:
             tp_text = "-"
-        self.lbl_meta_test_plan.setText(tp_text)
+        self._set_summary_value(self.lbl_meta_test_plan, tp_text, "#f97316")
 
     def _checklist_counts(self, checklist):
         total = 0

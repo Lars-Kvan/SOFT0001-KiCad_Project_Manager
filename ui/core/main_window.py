@@ -260,7 +260,7 @@ class MainWindow(QMainWindow):
         button.setToolButtonStyle(Qt.ToolButtonTextBesideIcon)
         button.setIconSize(QSize(24, 24))
         button.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Preferred)
-        button.setMinimumHeight(64)
+        button.setMinimumHeight(80)
         font = button.font()
         font.setPointSize(13)
         font.setWeight(QFont.DemiBold if hasattr(QFont, "DemiBold") else QFont.Bold)
@@ -831,7 +831,7 @@ class MainWindow(QMainWindow):
             f" color: {text_color};"
             f" border: 1px solid {border_color};"
             " border-radius: 16px;"
-            " padding: 18px 16px;"
+            " padding: 22px 16px;"
             " text-align: left;"
             " letter-spacing: 0.08em;"
             "}"

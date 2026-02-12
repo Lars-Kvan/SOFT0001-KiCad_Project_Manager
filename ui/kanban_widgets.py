@@ -1,6 +1,6 @@
 from PySide6.QtWidgets import (QWidget, QVBoxLayout, QHBoxLayout, QListWidget, 
                              QPushButton, QLabel, QLineEdit, QListWidgetItem,
-                             QDialog, QTextEdit, QStyledItemDelegate, QStyle, QComboBox, QSlider, QFrame, QSizePolicy)
+                             QDialog, QTextEdit, QStyledItemDelegate, QStyle, QComboBox, QSlider, QFrame, QSizePolicy, QGraphicsDropShadowEffect)
 from PySide6.QtCore import Qt, QRect, QSize, QTimer, QPointF
 from PySide6.QtGui import QColor, QPainter, QPen, QFont, QFontMetrics, QPainterPath, QDrag, QStandardItemModel, QStandardItem, QCursor
 from PySide6.QtWidgets import QApplication
@@ -58,6 +58,15 @@ QComboBox QAbstractItemView {
         container_layout = QVBoxLayout(self.container)
         container_layout.setContentsMargins(12, 10, 12, 12)
         container_layout.setSpacing(8)
+
+        self.accent_strip = QFrame()
+        self.accent_strip.setFixedHeight(4)
+        self.accent_strip.setObjectName("taskAccent")
+        self.accent_strip.setStyleSheet("border: none; border-radius: 2px;")
+        container_layout.addWidget(self.accent_strip)
+        container_layout.addSpacing(6)
+
+        self.container.setGraphicsEffect(self._create_drop_shadow())
 
         theme = self.logic.settings.get("theme", "Light")
         dark_mode = theme in {"Dark", "Teal Sand Dark"}
@@ -193,6 +202,31 @@ QComboBox QAbstractItemView {
         # Connect signal
         self.combo_prio.currentIndexChanged.connect(self.on_prio_changed)
         self.update_priority_badge()
+
+    def _create_drop_shadow(self):
+        effect = QGraphicsDropShadowEffect(self)
+        effect.setBlurRadius(20)
+        effect.setXOffset(0)
+        effect.setYOffset(10)
+        effect.setColor(QColor(15, 15, 15, 120))
+        return effect
+
+    def update_header_style(self):
+        color = self._category_color or "#95a5a6"
+        accent = QColor(color)
+        gradient_color = accent.lighter(130)
+        gradient = (
+            f"qlineargradient(x1:0,y1:0,x2:1,y2:0, stop:0 {accent.name()}, stop:1 {gradient_color.name()})"
+        )
+        self.accent_strip.setStyleSheet(f"border: none; border-radius: 2px; background: {gradient};")
+
+        theme = self.logic.settings.get("theme", "Light")
+        dark_mode = theme in {"Dark", "Teal Sand Dark"}
+        base = "#111827" if dark_mode else "#FFFFFF"
+        border = "#1F2937" if dark_mode else "#E5E7EB"
+        self.container.setStyleSheet(
+            f"QFrame#taskBubble {{ background-color: {base}; border: 1px solid {border}; border-radius: 16px; }}"
+        )
 
     def on_title_changed(self, text):
         self.item.setText(text)

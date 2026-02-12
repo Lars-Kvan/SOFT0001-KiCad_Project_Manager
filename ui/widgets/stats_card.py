@@ -1,4 +1,4 @@
-from PySide6.QtWidgets import QFrame, QVBoxLayout, QHBoxLayout, QLabel
+from PySide6.QtWidgets import QFrame, QVBoxLayout, QHBoxLayout, QLabel, QSizePolicy
 from PySide6.QtCore import Qt
 
 from .elevation import apply_layered_elevation
@@ -9,6 +9,8 @@ class StatsCard(QFrame):
     def __init__(self, title, value="-", accent=None, subtitle=None, icon=None, theme="Light", depth="primary"):
         super().__init__()
         self.setObjectName("statsCard")
+
+        self.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Minimum)
 
         layout = QVBoxLayout(self)
         apply_layout(layout, margin="md", spacing="sm")

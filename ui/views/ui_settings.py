@@ -48,17 +48,23 @@ class SettingsTab(QWidget):
                 border-right: 1px solid {item_selected};
             }}
             QWidget#settingsNavItem {{
-                background-color: transparent;
-                border-radius: 12px;
-                padding: 10px 12px;
-                border: 1px solid transparent;
+                background: qlineargradient(x1:0, y1:0, x2:1, y2:0,
+                    stop:0 rgba(255, 255, 255, 0.4), stop:1 rgba(255, 255, 255, 0.15));
+                border-radius: 18px;
+                padding: 12px 14px;
+                border: 1px solid rgba(255, 255, 255, 0.25);
+                min-height: 68px;
             }}
             QWidget#settingsNavItem[selected="true"] {{
-                background-color: {item_selected};
-                border-color: #2563EB;
+                background: qlineargradient(x1:0, y1:0, x2:1, y2:0,
+                    stop:0 #2563EB, stop:1 #1e40af);
+                border-color: #1e40af;
+            }}
+            QWidget#settingsNavItem QLabel {{
+                color: #e5e7eb;
             }}
             QWidget#settingsNavItem[selected="true"] QLabel {{
-                color: #F8FAFC;
+                color: #ffffff;
             }}
             """
         )
