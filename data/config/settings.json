@@ -752,7 +752,7 @@
                 "type": "PCB",
                 "description": "",
                 "main_schematic": "${BASE_DIR}/projects/PCBA0001 - Active DC Load/Active DC Load/PCBA0001 - Active DC Load.kicad_sch",
-                "last_accessed": "2026-02-12 22:08:24",
+                "last_accessed": "2026-02-12 22:37:55",
                 "number": "0001",
                 "pinned": false,
                 "layout_file": "C:/Users/larsk/Documents/KiCad/9.0/projects/PCBA0001 - Active DC Load/Active DC Load/PCBA0001 - Active DC Load.kicad_pcb",
@@ -1088,7 +1088,7 @@
                 "main_schematic": "${BASE_DIR}/projects/PCBA0004 - SMA BoB/PCBA0004 - SMA BoB.kicad_sch",
                 "layout_file": "C:/Users/larsk/Documents/KiCad/9.0/projects/PCBA0004 - SMA BoB/PCBA0004 - SMA BoB.kicad_pcb",
                 "tags": [],
-                "last_accessed": "2026-02-12 20:38:11",
+                "last_accessed": "2026-02-12 22:34:26",
                 "number": "PCBA0004",
                 "git_directory": "",
                 "git_same_as_location": true
@@ -1351,13 +1351,13 @@
             "enabled": true,
             "interval_min": 60,
             "max_backups": 3,
-            "last_run": "2026-02-12 22:08:19"
+            "last_run": "2026-02-12 22:38:06"
         },
         "footprints": {
             "enabled": true,
             "interval_min": 60,
             "max_backups": 3,
-            "last_run": "2026-02-12 22:08:19"
+            "last_run": "2026-02-12 22:38:06"
         }
     },
     "checklist_templates": {

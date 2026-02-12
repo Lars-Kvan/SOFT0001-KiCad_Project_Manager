@@ -8,7 +8,7 @@ from PySide6.QtWidgets import (
     QWidget,
 )
 
-from ui.icons import Icons
+from ui.resources.icons import Icons
 
 
 class Toast(QWidget):
