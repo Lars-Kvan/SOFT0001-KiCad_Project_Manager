@@ -1,0 +1,43 @@
+{
+    "global_rules": {
+        "MPN": "",
+        "Datasheet": "",
+        "Description": "",
+        "Value": ""
+    },
+    "library_rules": {
+        "PL Resistor SMD": {
+            "Tolerance": "",
+            "Rated Power": ""
+        },
+        "PL Capacitor Electrolytic": {
+            "Rated Voltage": ""
+        },
+        "PL Capacitor MLCC": {
+            "Dielectric": "",
+            "Tolerance": "",
+            "Rated Voltage": ""
+        }
+    },
+    "exemptions": {
+        "libraries": {
+            "PL Power Symbols": [
+                "Datasheet",
+                "MPN"
+            ],
+            "PL Net Tie": [
+                "MPN"
+            ]
+        },
+        "parts": {
+            "PL Connector Terminal:Template_Screw_Terminal_01x02": [
+                "MPN",
+                "Datasheet",
+                "Description"
+            ],
+            "PL Resistor SMD:Resistor_Template": [
+                "MPN"
+            ]
+        }
+    }
+}

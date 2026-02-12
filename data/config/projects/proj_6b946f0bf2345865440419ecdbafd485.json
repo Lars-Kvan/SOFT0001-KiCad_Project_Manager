@@ -1,0 +1,127 @@
+{
+  "project_key": "Lab Bench Aux Power",
+  "project": {
+    "metadata": {
+      "name": "Lab Bench Aux Power",
+      "location": "C:/Users/larsk/Documents/KiCad/9.0/projects/PCBA0009 - Lab Bench Aux power",
+      "status": "Pre-Design",
+      "revision": "A",
+      "type": "PCB",
+      "description": "",
+      "main_schematic": "",
+      "layout_file": "",
+      "tags": [],
+      "last_accessed": "2026-02-12 20:30:47",
+      "number": "0009",
+      "git_directory": "",
+      "git_same_as_location": true
+    },
+    "kanban": {
+      "todo": [
+        {
+          "name": "Create Schematic",
+          "desc": "",
+          "progress": 0.0,
+          "category": "Task",
+          "priority": "Normal"
+        },
+        {
+          "name": "Assign Footprints",
+          "desc": "",
+          "progress": 0.0,
+          "category": "Task",
+          "priority": "Normal"
+        },
+        {
+          "name": "Run ERC",
+          "desc": "",
+          "progress": 0.0,
+          "category": "Task",
+          "priority": "Normal"
+        },
+        {
+          "name": "Generate Netlist",
+          "desc": "",
+          "progress": 0.0,
+          "category": "Task",
+          "priority": "Normal"
+        },
+        {
+          "name": "Outline PCB",
+          "desc": "",
+          "progress": 0.0,
+          "category": "Task",
+          "priority": "Normal"
+        },
+        {
+          "name": "Place Components",
+          "desc": "",
+          "progress": 0.0,
+          "category": "Task",
+          "priority": "Normal"
+        },
+        {
+          "name": "Route Tracks",
+          "desc": "",
+          "progress": 0.0,
+          "category": "Task",
+          "priority": "Normal"
+        },
+        {
+          "name": "Run DRC",
+          "desc": "",
+          "progress": 0.0,
+          "category": "Task",
+          "priority": "Normal"
+        },
+        {
+          "name": "Generate Gerbers",
+          "desc": "",
+          "progress": 0.0,
+          "category": "Task",
+          "priority": "Normal"
+        },
+        {
+          "name": "Order Parts",
+          "desc": "",
+          "progress": 0.0,
+          "category": "Task",
+          "priority": "Normal"
+        }
+      ],
+      "prog": [],
+      "done": []
+    },
+    "bom_pricing": {},
+    "checklist": {},
+    "test_plan": {
+      "cases": [],
+      "config": {
+        "categories": [
+          "Functional",
+          "Electrical",
+          "Firmware",
+          "Mechanical",
+          "Safety",
+          "Manufacturing",
+          "Regression"
+        ],
+        "priorities": [
+          "Critical",
+          "High",
+          "Normal",
+          "Low"
+        ],
+        "types": [
+          "Unit",
+          "Subsystem",
+          "System",
+          "Integration",
+          "Regression",
+          "Validation"
+        ]
+      }
+    },
+    "requirements": []
+  }
+}

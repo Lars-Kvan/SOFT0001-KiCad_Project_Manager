@@ -1,0 +1,116 @@
+{
+  "project_key": "Ultrasonic Transducer Array",
+  "project": {
+    "metadata": {
+      "name": "Ultrasonic Transducer Array",
+      "location": "C:/Users/larsk/Documents/KiCad/9.0/projects/PCBA0006 - Ultrasonic Transducer Array",
+      "status": "Pre-Design",
+      "revision": "A",
+      "type": "PCB",
+      "description": "",
+      "main_schematic": "C:/Users/larsk/Documents/KiCad/9.0/projects/PCBA0006 - Ultrasonic Transducer Array/PCBA0006 - Ultrasonic Transducer Array.kicad_sch",
+      "number": "0006",
+      "last_accessed": "2026-02-12 20:31:39",
+      "layout_file": "C:/Users/larsk/Documents/KiCad/9.0/projects/PCBA0006 - Ultrasonic Transducer Array/PCBA0006 - Ultrasonic Transducer Array.kicad_pcb",
+      "git_directory": "",
+      "git_same_as_location": true
+    },
+    "kanban": {
+      "todo": [
+        {
+          "name": "Create Schematic",
+          "desc": "",
+          "progress": 0,
+          "category": "Task"
+        },
+        {
+          "name": "Assign Footprints",
+          "desc": "",
+          "progress": 0,
+          "category": "Task"
+        },
+        {
+          "name": "Run ERC",
+          "desc": "",
+          "progress": 0,
+          "category": "Task"
+        },
+        {
+          "name": "Generate Netlist",
+          "desc": "",
+          "progress": 0,
+          "category": "Task"
+        },
+        {
+          "name": "Outline PCB",
+          "desc": "",
+          "progress": 0,
+          "category": "Task"
+        },
+        {
+          "name": "Place Components",
+          "desc": "",
+          "progress": 0,
+          "category": "Task"
+        },
+        {
+          "name": "Route Tracks",
+          "desc": "",
+          "progress": 0,
+          "category": "Task"
+        },
+        {
+          "name": "Run DRC",
+          "desc": "",
+          "progress": 0,
+          "category": "Task"
+        },
+        {
+          "name": "Generate Gerbers",
+          "desc": "",
+          "progress": 0,
+          "category": "Task"
+        },
+        {
+          "name": "Order Parts",
+          "desc": "",
+          "progress": 0,
+          "category": "Task"
+        }
+      ],
+      "prog": [],
+      "done": []
+    },
+    "bom_pricing": {},
+    "checklist": {},
+    "test_plan": {
+      "cases": [],
+      "config": {
+        "categories": [
+          "Functional",
+          "Electrical",
+          "Firmware",
+          "Mechanical",
+          "Safety",
+          "Manufacturing",
+          "Regression"
+        ],
+        "priorities": [
+          "Critical",
+          "High",
+          "Normal",
+          "Low"
+        ],
+        "types": [
+          "Unit",
+          "Subsystem",
+          "System",
+          "Integration",
+          "Regression",
+          "Validation"
+        ]
+      }
+    },
+    "requirements": []
+  }
+}

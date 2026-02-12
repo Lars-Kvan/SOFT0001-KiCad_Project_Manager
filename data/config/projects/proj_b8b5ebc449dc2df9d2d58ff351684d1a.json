@@ -1,0 +1,224 @@
+{
+  "project_key": "Active DC Load",
+  "project": {
+    "metadata": {
+      "name": "Active DC Load",
+      "location": "C:/Users/larsk/Documents/KiCad/9.0/projects/PCBA0001 - Active DC Load",
+      "status": "Schematic Capture",
+      "revision": "A",
+      "type": "PCB",
+      "description": "",
+      "main_schematic": "C:/Users/larsk/Documents/KiCad/9.0/projects/PCBA0001 - Active DC Load/Active DC Load/PCBA0001 - Active DC Load.kicad_sch",
+      "last_accessed": "2026-02-12 20:47:29",
+      "number": "0001",
+      "pinned": false,
+      "layout_file": "C:/Users/larsk/Documents/KiCad/9.0/projects/PCBA0001 - Active DC Load/Active DC Load/PCBA0001 - Active DC Load.kicad_pcb",
+      "git_directory": "",
+      "git_same_as_location": true
+    },
+    "kanban": {
+      "todo": [
+        {
+          "name": "Create Schematic",
+          "desc": "",
+          "progress": 0,
+          "category": "Task",
+          "priority": "Critical"
+        },
+        {
+          "name": "Assign Footprints",
+          "desc": "",
+          "progress": 0,
+          "category": "Task",
+          "priority": "Normal"
+        },
+        {
+          "name": "Run ERC",
+          "desc": "tyest",
+          "progress": 0,
+          "category": "Task",
+          "priority": "Normal"
+        },
+        {
+          "name": "Generate Netlist",
+          "desc": "",
+          "progress": 0,
+          "category": "Task",
+          "priority": "Normal"
+        },
+        {
+          "name": "Outline PCB",
+          "desc": "",
+          "progress": 0,
+          "category": "Task",
+          "priority": "Normal"
+        },
+        {
+          "name": "Place Components",
+          "desc": "",
+          "progress": 0,
+          "category": "Task",
+          "priority": "Normal"
+        },
+        {
+          "name": "Route Tracks",
+          "desc": "",
+          "progress": 0,
+          "category": "Task",
+          "priority": "Normal"
+        },
+        {
+          "name": "Run DRC",
+          "desc": "",
+          "progress": 0,
+          "category": "Task",
+          "priority": "Normal"
+        },
+        {
+          "name": "Generate Gerbers",
+          "desc": "",
+          "progress": 0,
+          "category": "Task",
+          "priority": "Normal"
+        },
+        {
+          "name": "Order Parts",
+          "desc": "",
+          "progress": 0,
+          "category": "Task",
+          "priority": "Normal"
+        }
+      ],
+      "prog": [],
+      "done": []
+    },
+    "bom_pricing": {},
+    "checklist": {
+      "Schematic: Electrical Rules Check (ERC)": [],
+      "Schematic: Netlist Verification": [],
+      "Schematic: Bill of Materials (BOM) Review": [],
+      "Layout: Design Rules Check (DRC)": [],
+      "Layout: Footprint Verification": [],
+      "Layout: Component Placement Review": [],
+      "Layout: Critical Routing / Impedance": [],
+      "Layout: Silkscreen & Polarity Check": [],
+      "Layout: 3D Model Fit Check": [],
+      "Fabrication: Gerber Generation & Review": [],
+      "Fabrication: Drill Files Generated": [],
+      "Assembly: Pick & Place File Generated": []
+    },
+    "requirements": [],
+    "structure": {
+      "tree": {
+        "children": [
+          {
+            "children": [],
+            "name": "Measurement.kicad_sch",
+            "part_count": 97,
+            "path": "${BASE_DIR}/../KiCad/9.0/projects/PCBA0001 - Active DC Load/Active DC Load/Measurement.kicad_sch"
+          },
+          {
+            "children": [],
+            "name": "Switch.kicad_sch",
+            "part_count": 33,
+            "path": "${BASE_DIR}/../KiCad/9.0/projects/PCBA0001 - Active DC Load/Active DC Load/Switch.kicad_sch"
+          }
+        ],
+        "name": "PCBA0001 - Active DC Load.kicad_sch",
+        "part_count": 261,
+        "path": "${BASE_DIR}/../KiCad/9.0/projects/PCBA0001 - Active DC Load/Active DC Load/PCBA0001 - Active DC Load.kicad_sch"
+      },
+      "part_count": 345
+    },
+    "test_plan": {
+      "cases": [
+        {
+          "id": "TP-001",
+          "title": "New Test Case",
+          "category": "Functional",
+          "priority": "Normal",
+          "type": "System",
+          "status": "Not Run",
+          "owner": "",
+          "requirement": "",
+          "preconditions": "",
+          "postconditions": "",
+          "notes": "",
+          "steps": [],
+          "runs": [
+            {
+              "date": "2026-01-30 20:09:58",
+              "result": "Not Run",
+              "tester": "",
+              "notes": ""
+            }
+          ],
+          "attachments": [],
+          "last_run": "2026-01-30 20:09:58"
+        },
+        {
+          "id": "TP-002",
+          "title": "New Test Case",
+          "category": "Functional",
+          "priority": "Normal",
+          "type": "System",
+          "status": "Not Run",
+          "owner": "",
+          "requirement": "",
+          "preconditions": "",
+          "postconditions": "",
+          "notes": "",
+          "steps": [],
+          "runs": [
+            {
+              "date": "2026-01-30 20:10:00",
+              "result": "Not Run",
+              "tester": "",
+              "notes": ""
+            },
+            {
+              "date": "2026-01-30 20:10:01",
+              "result": "Not Run",
+              "tester": "",
+              "notes": ""
+            },
+            {
+              "date": "2026-01-30 20:10:02",
+              "result": "Not Run",
+              "tester": "",
+              "notes": ""
+            }
+          ],
+          "attachments": [],
+          "last_run": "2026-01-30 20:10:02"
+        }
+      ],
+      "config": {
+        "categories": [
+          "Functional",
+          "Electrical",
+          "Firmware",
+          "Mechanical",
+          "Safety",
+          "Manufacturing",
+          "Regression"
+        ],
+        "priorities": [
+          "Critical",
+          "High",
+          "Normal",
+          "Low"
+        ],
+        "types": [
+          "Unit",
+          "Subsystem",
+          "System",
+          "Integration",
+          "Regression",
+          "Validation"
+        ]
+      }
+    },
+    "pricing_cache": {}
+  }
+}

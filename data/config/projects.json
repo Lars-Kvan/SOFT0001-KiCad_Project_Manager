@@ -1,0 +1,45 @@
+{
+  "project_registry_index": [
+    {
+      "project_key": "Lab Bench Power Supply",
+      "file": "proj_4470bd8115f137f2040ded44a8d95595.json"
+    },
+    {
+      "project_key": "KiCad Project Manager",
+      "file": "proj_44b3a6ec42863a26e0d0e60054986c5c.json"
+    },
+    {
+      "project_key": "Lab Bench Power Supply Output Connector",
+      "file": "proj_4d0e4678a980bf963dbb67d4dab7f241.json"
+    },
+    {
+      "project_key": "Ultrasonic Transducer Array Driver",
+      "file": "proj_68a84186180e8ffcb12b7f30b52f4bae.json"
+    },
+    {
+      "project_key": "Lab Bench Aux Power",
+      "file": "proj_6b946f0bf2345865440419ecdbafd485.json"
+    },
+    {
+      "project_key": "Ultrasonic Transducer Array",
+      "file": "proj_838faf7429972fd0d57c77557f1fbfea.json"
+    },
+    {
+      "project_key": "Active DC Load",
+      "file": "proj_b8b5ebc449dc2df9d2d58ff351684d1a.json"
+    },
+    {
+      "project_key": "PCB Probe Arm",
+      "file": "proj_c69943ba3c8f0b05a9b4b940ea2acd8f.json"
+    },
+    {
+      "project_key": "PCBA0004",
+      "file": "proj_caf7d9a8ee9dc18c77b4ad2467c67d77.json"
+    },
+    {
+      "project_key": "Miniuature Hotplate",
+      "file": "proj_e614ab4c0e954344d21a5ab9f2641ec7.json"
+    }
+  ],
+  "project_count": 10
+}

@@ -1,0 +1,27 @@
+{
+  "entries": [
+    {
+      "project": "Engineering",
+      "task": "New Task",
+      "start": "2026-01-28 09:00:00",
+      "end": "2026-01-28 11:15:00",
+      "_created_at": 1769954604.130726,
+      "subtask": "",
+      "description": "test"
+    },
+    {
+      "project": "Schematic Capture",
+      "subtask": "N/A",
+      "start": "2026-01-26T03:45:00",
+      "end": "2026-01-26T04:45:00",
+      "notes": "",
+      "color": "#7c3aed"
+    }
+  ],
+  "projects": [
+    "Engineering",
+    "Admin",
+    "Research",
+    "Deep Work"
+  ]
+}

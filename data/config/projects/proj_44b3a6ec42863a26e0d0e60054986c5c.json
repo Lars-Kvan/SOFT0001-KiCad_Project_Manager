@@ -1,0 +1,83 @@
+{
+  "project_key": "KiCad Project Manager",
+  "project": {
+    "metadata": {
+      "name": "KiCad Project Manager",
+      "number": "0001",
+      "revision": "A",
+      "status": "Pre-Design",
+      "type": "Software",
+      "location": "C:/Users/larsk/Documents/KiCad/9.0/software/SOFT0001-KiCad_Project_Manager",
+      "description": "",
+      "main_schematic": "",
+      "last_accessed": "2026-02-12 20:45:48",
+      "pinned": false,
+      "layout_file": "",
+      "git_directory": "C:/Users/larsk/Documents/KiCad/9.0/software/SOFT0001-KiCad_Project_Manager",
+      "git_same_as_location": true
+    },
+    "kanban": {
+      "todo": [
+        {
+          "name": "Test",
+          "desc": "",
+          "progress": 0,
+          "category": "",
+          "priority": "Normal"
+        },
+        {
+          "name": "New Task",
+          "desc": "",
+          "progress": 0,
+          "category": "",
+          "priority": "Normal"
+        }
+      ],
+      "prog": [],
+      "done": []
+    },
+    "checklist": {
+      "Schematic: Electrical Rules Check (ERC)": [],
+      "Schematic: Netlist Verification": [],
+      "Schematic: Bill of Materials (BOM) Review": [],
+      "Layout: Design Rules Check (DRC)": [],
+      "Layout: Footprint Verification": [],
+      "Layout: Component Placement Review": [],
+      "Layout: Critical Routing / Impedance": [],
+      "Layout: Silkscreen & Polarity Check": [],
+      "Layout: 3D Model Fit Check": [],
+      "Fabrication: Gerber Generation & Review": [],
+      "Fabrication: Drill Files Generated": [],
+      "Assembly: Pick & Place File Generated": []
+    },
+    "requirements": [],
+    "test_plan": {
+      "cases": [],
+      "config": {
+        "categories": [
+          "Functional",
+          "Electrical",
+          "Firmware",
+          "Mechanical",
+          "Safety",
+          "Manufacturing",
+          "Regression"
+        ],
+        "priorities": [
+          "Critical",
+          "High",
+          "Normal",
+          "Low"
+        ],
+        "types": [
+          "Unit",
+          "Subsystem",
+          "System",
+          "Integration",
+          "Regression",
+          "Validation"
+        ]
+      }
+    }
+  }
+}

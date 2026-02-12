@@ -1,0 +1,48 @@
+# ----------------------------
+# Keep these directories tracked
+# (you asked to commit them)
+# ----------------------------
+!backups/
+!app_data/
+!data/time/
+
+# ----------------------------
+# Python / virtualenv
+# ----------------------------
+.venv/
+.venv_ocp/
+__pycache__/
+*.py[cod]
+*$py.class
+
+# ----------------------------
+# Local tooling / editor noise
+# ----------------------------
+.vscode/
+.idea/
+*.swp
+*.swo
+Thumbs.db
+.DS_Store
+
+# ----------------------------
+# Runtime temp files
+# ----------------------------
+*.lck
+*~
+
+# ----------------------------
+# Generated caches (keep time data)
+# ----------------------------
+data/cache/
+OLD/
+View_tests/
+${BASE_DIR}/
+temp_tail.txt
+clanker.db
+
+# ----------------------------
+# Logs
+# ----------------------------
+logs/
+*.log

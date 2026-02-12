@@ -1,0 +1,125 @@
+{
+  "project_key": "Miniuature Hotplate",
+  "project": {
+    "metadata": {
+      "name": "Miniuature Hotplate",
+      "location": "C:/Users/larsk/Documents/KiCad/9.0/projects/PCBA0005 - Miniature Hotplate",
+      "status": "Pre-Design",
+      "revision": "A",
+      "type": "PCB",
+      "description": "",
+      "main_schematic": "C:/Users/larsk/Documents/KiCad/9.0/projects/PCBA0005 - Miniature Hotplate/PCBA0005 - Miniature Hotplate.kicad_sch",
+      "number": "0005",
+      "last_accessed": "2026-02-12 20:31:22",
+      "layout_file": "C:/Users/larsk/Documents/KiCad/9.0/projects/PCBA0005 - Miniature Hotplate/PCBA0005 - Miniature Hotplate.kicad_pcb",
+      "git_directory": "",
+      "git_same_as_location": true
+    },
+    "kanban": {
+      "todo": [
+        {
+          "name": "Create Schematic",
+          "desc": "",
+          "progress": 0,
+          "category": "Task"
+        },
+        {
+          "name": "Assign Footprints",
+          "desc": "",
+          "progress": 0,
+          "category": "Task"
+        },
+        {
+          "name": "Run ERC",
+          "desc": "",
+          "progress": 0,
+          "category": "Task"
+        },
+        {
+          "name": "Generate Netlist",
+          "desc": "",
+          "progress": 0,
+          "category": "Task"
+        },
+        {
+          "name": "Outline PCB",
+          "desc": "",
+          "progress": 0,
+          "category": "Task"
+        },
+        {
+          "name": "Place Components",
+          "desc": "",
+          "progress": 0,
+          "category": "Task"
+        },
+        {
+          "name": "Route Tracks",
+          "desc": "",
+          "progress": 0,
+          "category": "Task"
+        },
+        {
+          "name": "Run DRC",
+          "desc": "",
+          "progress": 0,
+          "category": "Task"
+        },
+        {
+          "name": "Generate Gerbers",
+          "desc": "",
+          "progress": 0,
+          "category": "Task"
+        },
+        {
+          "name": "Order Parts",
+          "desc": "",
+          "progress": 0,
+          "category": "Task"
+        }
+      ],
+      "prog": [],
+      "done": []
+    },
+    "bom_pricing": {},
+    "checklist": {},
+    "requirements": [],
+    "structure": {
+      "tree": {
+        "children": [],
+        "name": "PCBA0005 - Miniature Hotplate.kicad_sch",
+        "part_count": 141,
+        "path": "${BASE_DIR}/../KiCad/9.0/projects/PCBA0005 - Miniature Hotplate/PCBA0005 - Miniature Hotplate.kicad_sch"
+      },
+      "part_count": 130
+    },
+    "test_plan": {
+      "cases": [],
+      "config": {
+        "categories": [
+          "Functional",
+          "Electrical",
+          "Firmware",
+          "Mechanical",
+          "Safety",
+          "Manufacturing",
+          "Regression"
+        ],
+        "priorities": [
+          "Critical",
+          "High",
+          "Normal",
+          "Low"
+        ],
+        "types": [
+          "Unit",
+          "Subsystem",
+          "System",
+          "Integration",
+          "Regression",
+          "Validation"
+        ]
+      }
+    }
+  }
+}

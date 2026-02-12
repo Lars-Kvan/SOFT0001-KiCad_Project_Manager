@@ -1,0 +1,116 @@
+{
+  "project_key": "PCB Probe Arm",
+  "project": {
+    "metadata": {
+      "name": "PCB Probe Arm",
+      "location": "C:/Users/larsk/Documents/KiCad/9.0/projects/PCBA0003 - PCB Probe Arm",
+      "status": "Pre-Design",
+      "revision": "A",
+      "type": "PCB",
+      "description": "",
+      "main_schematic": "",
+      "last_accessed": "2026-02-12 20:32:17",
+      "number": "0003",
+      "layout_file": "",
+      "git_directory": "",
+      "git_same_as_location": true
+    },
+    "kanban": {
+      "todo": [
+        {
+          "name": "Create Schematic",
+          "desc": "",
+          "progress": 0,
+          "category": "Task"
+        },
+        {
+          "name": "Assign Footprints",
+          "desc": "",
+          "progress": 0,
+          "category": "Task"
+        },
+        {
+          "name": "Run ERC",
+          "desc": "",
+          "progress": 0,
+          "category": "Task"
+        },
+        {
+          "name": "Generate Netlist",
+          "desc": "",
+          "progress": 0,
+          "category": "Task"
+        },
+        {
+          "name": "Outline PCB",
+          "desc": "",
+          "progress": 0,
+          "category": "Task"
+        },
+        {
+          "name": "Place Components",
+          "desc": "",
+          "progress": 0,
+          "category": "Task"
+        },
+        {
+          "name": "Route Tracks",
+          "desc": "",
+          "progress": 0,
+          "category": "Task"
+        },
+        {
+          "name": "Run DRC",
+          "desc": "",
+          "progress": 0,
+          "category": "Task"
+        },
+        {
+          "name": "Generate Gerbers",
+          "desc": "",
+          "progress": 0,
+          "category": "Task"
+        },
+        {
+          "name": "Order Parts",
+          "desc": "",
+          "progress": 0,
+          "category": "Task"
+        }
+      ],
+      "prog": [],
+      "done": []
+    },
+    "bom_pricing": {},
+    "checklist": {},
+    "requirements": [],
+    "test_plan": {
+      "cases": [],
+      "config": {
+        "categories": [
+          "Functional",
+          "Electrical",
+          "Firmware",
+          "Mechanical",
+          "Safety",
+          "Manufacturing",
+          "Regression"
+        ],
+        "priorities": [
+          "Critical",
+          "High",
+          "Normal",
+          "Low"
+        ],
+        "types": [
+          "Unit",
+          "Subsystem",
+          "System",
+          "Integration",
+          "Regression",
+          "Validation"
+        ]
+      }
+    }
+  }
+}

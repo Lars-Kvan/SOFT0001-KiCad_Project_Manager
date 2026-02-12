@@ -1,0 +1,1837 @@
+{
+    "symbol_path": "${BASE_DIR}/symbols",
+    "footprint_path": "${BASE_DIR}/symbols",
+    "projects": [
+        "Lab Bench Power Supply",
+        "KiCad Project Manager",
+        "Active DC Load",
+        "PCB Probe Arm",
+        "PCBA0004",
+        "Miniuature Hotplate",
+        "Ultrasonic Transducer Array",
+        "Ultrasonic Transducer Array Driver",
+        "Lab Bench Power Supply Output Connector",
+        "Lab Bench Aux Power"
+    ],
+    "path_root": "C:/KiCad/9.0",
+    "project_registry": {
+        "C:/KiCad/9.0/projects/PCBA0002 - Lab Bench Power Supply": {
+            "metadata": {
+                "name": "PCBA0002 - Lab Bench Power Supply",
+                "number": "",
+                "revision": "A",
+                "status": "Schematic Capture",
+                "type": "PCB",
+                "location": "${BASE_DIR}/projects\\PCBA0002 - Lab Bench Power Supply",
+                "description": "",
+                "main_schematic": ""
+            },
+            "kanban": {
+                "todo": [],
+                "prog": [],
+                "done": []
+            }
+        },
+        "C:/KiCad/9.0/projects/PCBA0001 - Active DC Load": {
+            "metadata": {
+                "name": "PCBA0001 - Active DC Load",
+                "location": "${BASE_DIR}/projects\\PCBA0001 - Active DC Load",
+                "status": "Pre-Design",
+                "revision": "A",
+                "type": "PCB",
+                "description": "",
+                "main_schematic": ""
+            },
+            "kanban": {
+                "todo": [],
+                "prog": [],
+                "done": []
+            }
+        },
+        "Lab Bench Power Supply": {
+            "metadata": {
+                "name": "Lab Bench Power Supply",
+                "number": "0002",
+                "revision": "A",
+                "status": "Pre-Design",
+                "type": "PCB",
+                "location": "${BASE_DIR}/projects\\PCBA0002 - Lab Bench Power Supply\\PCBA0002 - Lab Bench Power Supply",
+                "description": "",
+                "main_schematic": "${BASE_DIR}/projects\\PCBA0002 - Lab Bench Power Supply\\PCBA0002 - Lab Bench Power Supply\\PCBA0002 - Lab Bench Power Supply.kicad_sch",
+                "last_accessed": "2026-02-10 09:18:52",
+                "layout_file": "C:/KiCad/9.0/projects\\PCBA0002 - Lab Bench Power Supply\\PCBA0002 - Lab Bench Power Supply\\PCBA0002 - Lab Bench Power Supply.kicad_pcb"
+            },
+            "kanban": {
+                "todo": [],
+                "prog": [],
+                "done": []
+            },
+            "checklist": {
+                "Schematic: Electrical Rules Check (ERC)": [],
+                "Schematic: Netlist Verification": [],
+                "Schematic: Bill of Materials (BOM) Review": [],
+                "Layout: Design Rules Check (DRC)": [],
+                "Layout: Footprint Verification": [],
+                "Layout: Component Placement Review": [],
+                "Layout: Critical Routing / Impedance": [],
+                "Layout: Silkscreen & Polarity Check": [],
+                "Layout: 3D Model Fit Check": [],
+                "Fabrication: Gerber Generation & Review": [],
+                "Fabrication: Drill Files Generated": [],
+                "Assembly: Pick & Place File Generated": []
+            },
+            "structure": {
+                "tree": {
+                    "children": [
+                        {
+                            "children": [],
+                            "name": "ADC.kicad_sch",
+                            "part_count": 150,
+                            "path": "${BASE_DIR}/..\\..\\Users\\larsk\\Documents\\KiCad\\9.0\\projects\\PCBA0002 - Lab Bench Power Supply\\PCBA0002 - Lab Bench Power Supply\\ADC.kicad_sch"
+                        },
+                        {
+                            "children": [],
+                            "name": "Aux Power.kicad_sch",
+                            "part_count": 56,
+                            "path": "${BASE_DIR}/..\\..\\Users\\larsk\\Documents\\KiCad\\9.0\\projects\\PCBA0002 - Lab Bench Power Supply\\PCBA0002 - Lab Bench Power Supply\\Aux Power.kicad_sch"
+                        },
+                        {
+                            "children": [],
+                            "name": "DC-DC Controller.kicad_sch",
+                            "part_count": 54,
+                            "path": "${BASE_DIR}/..\\..\\Users\\larsk\\Documents\\KiCad\\9.0\\projects\\PCBA0002 - Lab Bench Power Supply\\PCBA0002 - Lab Bench Power Supply\\DC-DC Controller.kicad_sch"
+                        },
+                        {
+                            "children": [],
+                            "name": "DC-DC Controller.kicad_sch",
+                            "part_count": 54,
+                            "path": "${BASE_DIR}/..\\..\\Users\\larsk\\Documents\\KiCad\\9.0\\projects\\PCBA0002 - Lab Bench Power Supply\\PCBA0002 - Lab Bench Power Supply\\DC-DC Controller.kicad_sch"
+                        },
+                        {
+                            "children": [],
+                            "name": "Gate_driver.kicad_sch",
+                            "part_count": 73,
+                            "path": "${BASE_DIR}/..\\..\\Users\\larsk\\Documents\\KiCad\\9.0\\projects\\PCBA0002 - Lab Bench Power Supply\\PCBA0002 - Lab Bench Power Supply\\Gate_driver.kicad_sch"
+                        },
+                        {
+                            "children": [],
+                            "name": "Gate_driver.kicad_sch",
+                            "part_count": 73,
+                            "path": "${BASE_DIR}/..\\..\\Users\\larsk\\Documents\\KiCad\\9.0\\projects\\PCBA0002 - Lab Bench Power Supply\\PCBA0002 - Lab Bench Power Supply\\Gate_driver.kicad_sch"
+                        },
+                        {
+                            "children": [],
+                            "name": "Gate_driver.kicad_sch",
+                            "part_count": 73,
+                            "path": "${BASE_DIR}/..\\..\\Users\\larsk\\Documents\\KiCad\\9.0\\projects\\PCBA0002 - Lab Bench Power Supply\\PCBA0002 - Lab Bench Power Supply\\Gate_driver.kicad_sch"
+                        },
+                        {
+                            "children": [],
+                            "name": "Gate_driver.kicad_sch",
+                            "part_count": 73,
+                            "path": "${BASE_DIR}/..\\..\\Users\\larsk\\Documents\\KiCad\\9.0\\projects\\PCBA0002 - Lab Bench Power Supply\\PCBA0002 - Lab Bench Power Supply\\Gate_driver.kicad_sch"
+                        },
+                        {
+                            "children": [],
+                            "name": "Input.kicad_sch",
+                            "part_count": 52,
+                            "path": "${BASE_DIR}/..\\..\\Users\\larsk\\Documents\\KiCad\\9.0\\projects\\PCBA0002 - Lab Bench Power Supply\\PCBA0002 - Lab Bench Power Supply\\Input.kicad_sch"
+                        },
+                        {
+                            "children": [],
+                            "name": "Output Filter 2.kicad_sch",
+                            "part_count": 13,
+                            "path": "${BASE_DIR}/..\\..\\Users\\larsk\\Documents\\KiCad\\9.0\\projects\\PCBA0002 - Lab Bench Power Supply\\PCBA0002 - Lab Bench Power Supply\\Output Filter 2.kicad_sch"
+                        },
+                        {
+                            "children": [],
+                            "name": "Output_filter.kicad_sch",
+                            "part_count": 57,
+                            "path": "${BASE_DIR}/..\\..\\Users\\larsk\\Documents\\KiCad\\9.0\\projects\\PCBA0002 - Lab Bench Power Supply\\PCBA0002 - Lab Bench Power Supply\\Output_filter.kicad_sch"
+                        },
+                        {
+                            "children": [],
+                            "name": "Output_Switch.kicad_sch",
+                            "part_count": 22,
+                            "path": "${BASE_DIR}/..\\..\\Users\\larsk\\Documents\\KiCad\\9.0\\projects\\PCBA0002 - Lab Bench Power Supply\\PCBA0002 - Lab Bench Power Supply\\Output_Switch.kicad_sch"
+                        },
+                        {
+                            "children": [],
+                            "name": "uC.kicad_sch",
+                            "part_count": 146,
+                            "path": "${BASE_DIR}/..\\..\\Users\\larsk\\Documents\\KiCad\\9.0\\projects\\PCBA0002 - Lab Bench Power Supply\\PCBA0002 - Lab Bench Power Supply\\uC.kicad_sch"
+                        },
+                        {
+                            "children": [],
+                            "name": "untitled.kicad_sch",
+                            "part_count": 42,
+                            "path": "${BASE_DIR}/..\\..\\Users\\larsk\\Documents\\KiCad\\9.0\\projects\\PCBA0002 - Lab Bench Power Supply\\PCBA0002 - Lab Bench Power Supply\\untitled.kicad_sch"
+                        },
+                        {
+                            "children": [],
+                            "name": "USB.kicad_sch",
+                            "part_count": 45,
+                            "path": "${BASE_DIR}/..\\..\\Users\\larsk\\Documents\\KiCad\\9.0\\projects\\PCBA0002 - Lab Bench Power Supply\\PCBA0002 - Lab Bench Power Supply\\USB.kicad_sch"
+                        },
+                        {
+                            "children": [],
+                            "name": "Voltage Sense.kicad_sch",
+                            "part_count": 90,
+                            "path": "${BASE_DIR}/..\\..\\Users\\larsk\\Documents\\KiCad\\9.0\\projects\\PCBA0002 - Lab Bench Power Supply\\PCBA0002 - Lab Bench Power Supply\\Voltage Sense.kicad_sch"
+                        }
+                    ],
+                    "name": "PCBA0002 - Lab Bench Power Supply.kicad_sch",
+                    "part_count": 127,
+                    "path": "${BASE_DIR}/..\\..\\Users\\larsk\\Documents\\KiCad\\9.0\\projects\\PCBA0002 - Lab Bench Power Supply\\PCBA0002 - Lab Bench Power Supply\\PCBA0002 - Lab Bench Power Supply.kicad_sch"
+                },
+                "part_count": 670
+            },
+            "requirements": [],
+            "test_plan": {
+                "cases": [],
+                "config": {
+                    "categories": [
+                        "Functional",
+                        "Electrical",
+                        "Firmware",
+                        "Mechanical",
+                        "Safety",
+                        "Manufacturing",
+                        "Regression"
+                    ],
+                    "priorities": [
+                        "Critical",
+                        "High",
+                        "Normal",
+                        "Low"
+                    ],
+                    "types": [
+                        "Unit",
+                        "Subsystem",
+                        "System",
+                        "Integration",
+                        "Regression",
+                        "Validation"
+                    ]
+                }
+            },
+            "pricing_cache": {}
+        },
+        "Test": {
+            "metadata": {
+                "name": "Test",
+                "location": "",
+                "status": "Pre-Design",
+                "revision": "A",
+                "type": "PCB",
+                "description": "",
+                "last_accessed": "2026-01-28 21:45:48",
+                "main_schematic": ""
+            },
+            "kanban": {
+                "todo": [],
+                "prog": [],
+                "done": []
+            },
+            "checklist": {}
+        },
+        "Lab Bench Power Supply #0002": {
+            "metadata": {
+                "name": "Lab Bench Power Supply #0002",
+                "location": "",
+                "status": "Pre-Design",
+                "revision": "A",
+                "type": "PCB",
+                "description": "",
+                "main_schematic": ""
+            },
+            "kanban": {
+                "todo": [],
+                "prog": [],
+                "done": []
+            },
+            "checklist": {}
+        },
+        "KiCad Project Manager": {
+            "metadata": {
+                "name": "KiCad Project Manager",
+                "number": "0001",
+                "revision": "A",
+                "status": "Pre-Design",
+                "type": "Software",
+                "location": "",
+                "description": "",
+                "main_schematic": "",
+                "last_accessed": "2026-02-10 09:18:48",
+                "pinned": false,
+                "layout_file": ""
+            },
+            "kanban": {
+                "todo": [
+                    {
+                        "name": "Stop using fucking emojis",
+                        "desc": "",
+                        "progress": 0,
+                        "category": "Software",
+                        "priority": "Normal"
+                    },
+                    {
+                        "name": "Fix spelling",
+                        "desc": "",
+                        "progress": 0,
+                        "category": "Layout",
+                        "priority": "Normal"
+                    },
+                    {
+                        "name": "Should be able to change project type without having to reload the program to update visuals",
+                        "desc": "",
+                        "progress": 0,
+                        "category": "Software",
+                        "priority": "Normal"
+                    },
+                    {
+                        "name": "Add number of assemblies when fetching price. Also add a plot for price vs number of units assembled",
+                        "desc": "",
+                        "progress": 0,
+                        "category": "Software",
+                        "priority": "Normal"
+                    },
+                    {
+                        "name": "BoM only gets parts from one subsheet",
+                        "desc": "",
+                        "progress": 0,
+                        "category": "Software",
+                        "priority": "Normal"
+                    },
+                    {
+                        "name": "Add Manual backup in settings",
+                        "desc": "",
+                        "progress": 0,
+                        "category": "Layout",
+                        "priority": "Normal"
+                    },
+                    {
+                        "name": "Should be able to add sub requirements",
+                        "desc": "",
+                        "progress": 0,
+                        "category": "Software",
+                        "priority": "Normal"
+                    },
+                    {
+                        "name": "Add errata to both projects and parts",
+                        "desc": "",
+                        "progress": 0,
+                        "category": "Layout",
+                        "priority": "Normal"
+                    },
+                    {
+                        "name": "In kanban remember last category when making new task",
+                        "desc": "Test",
+                        "progress": 0,
+                        "category": "Layout",
+                        "priority": "Normal"
+                    },
+                    {
+                        "name": "Dropdown menu arrow ugly as shit",
+                        "desc": "",
+                        "progress": 0,
+                        "category": "Layout",
+                        "priority": "Normal"
+                    },
+                    {
+                        "name": "To much spacing between tasks in Kanban",
+                        "desc": "",
+                        "progress": 0,
+                        "category": "Layout",
+                        "priority": "Normal"
+                    },
+                    {
+                        "name": "New Task",
+                        "desc": "",
+                        "progress": 0,
+                        "category": "",
+                        "priority": "Normal"
+                    },
+                    {
+                        "name": "make project completion bar look better",
+                        "desc": "",
+                        "progress": 0,
+                        "category": "",
+                        "priority": "Low"
+                    }
+                ],
+                "prog": [
+                    {
+                        "name": "Kanban",
+                        "desc": "have the kanban be configurable so that certain categories are only for certain project types",
+                        "progress": 0,
+                        "category": "Software",
+                        "priority": "Normal"
+                    },
+                    {
+                        "name": "New Task",
+                        "desc": "",
+                        "progress": 0,
+                        "category": "",
+                        "priority": "Normal"
+                    },
+                    {
+                        "name": "BOM should display which subsheet each part belongs to",
+                        "desc": "",
+                        "progress": 0,
+                        "category": "Software",
+                        "priority": "Normal"
+                    },
+                    {
+                        "name": "Add a weighted status/progress in kanban for progress",
+                        "desc": "",
+                        "progress": 0,
+                        "category": "Layout",
+                        "priority": "Normal"
+                    },
+                    {
+                        "name": "Progress in Kanban should be a slide bar with 10% increments",
+                        "desc": "",
+                        "progress": 0,
+                        "category": "Layout",
+                        "priority": "Normal"
+                    },
+                    {
+                        "name": "Fix symbol viewer",
+                        "desc": "Arcs arent handled properly and many more issues",
+                        "progress": 0,
+                        "category": "Layout",
+                        "priority": "Normal"
+                    },
+                    {
+                        "name": "Fix Checklist project bar",
+                        "desc": "",
+                        "progress": 0,
+                        "category": "Software",
+                        "priority": "Normal"
+                    },
+                    {
+                        "name": "Fix footprint viewer",
+                        "desc": "",
+                        "progress": 0,
+                        "category": "Layout",
+                        "priority": "Normal"
+                    },
+                    {
+                        "name": "Overhaul Git Control",
+                        "desc": "",
+                        "progress": 0,
+                        "category": "Layout",
+                        "priority": "Normal"
+                    }
+                ],
+                "done": [
+                    {
+                        "name": "",
+                        "desc": "Fix loading of themes\n",
+                        "progress": 100,
+                        "category": "Layout",
+                        "priority": "Normal"
+                    },
+                    {
+                        "name": "make project type in projects a drop down menu configurable in settings",
+                        "desc": "Should also then add a feature to sort by project type ",
+                        "progress": 100,
+                        "category": "Layout",
+                        "priority": "Normal"
+                    },
+                    {
+                        "name": "Organize settings into subtabds",
+                        "desc": "",
+                        "progress": 100,
+                        "category": "Software",
+                        "priority": "Normal"
+                    },
+                    {
+                        "name": "Righht clicking and pinning project should put it on top",
+                        "desc": "",
+                        "progress": 100,
+                        "category": "",
+                        "priority": "Normal"
+                    },
+                    {
+                        "name": "Add disk usage for each category in backups",
+                        "desc": "",
+                        "progress": 100,
+                        "category": "Layout",
+                        "priority": "Normal"
+                    },
+                    {
+                        "name": "Switching betwen projects is slow as shit",
+                        "desc": "",
+                        "progress": 100,
+                        "category": "Layout",
+                        "priority": "Normal"
+                    },
+                    {
+                        "name": "Add a \"requirements\" tab to project",
+                        "desc": "",
+                        "progress": 100,
+                        "category": "Software",
+                        "priority": "Normal"
+                    },
+                    {
+                        "name": "",
+                        "desc": "Add more themes\n",
+                        "progress": 100,
+                        "category": "Layout",
+                        "priority": "Normal"
+                    },
+                    {
+                        "name": "Allow to reorgainze sub tabs",
+                        "desc": "",
+                        "progress": 100,
+                        "category": "Software",
+                        "priority": "Normal"
+                    },
+                    {
+                        "name": "Make details for projects its own tab",
+                        "desc": "Also add number of parts in details",
+                        "progress": 100,
+                        "category": "Layout",
+                        "priority": "High"
+                    },
+                    {
+                        "name": "",
+                        "desc": "For PCBAs the \"status metadata\" should also have the option to input the main schematic file. read this and all subschematics in this file and implement it in other tools such as BoM etc\n\nSomwhere should also be displayer number of subsheats and their name. Maybe add a project details folder?",
+                        "progress": 100,
+                        "category": "Layout",
+                        "priority": "Normal"
+                    },
+                    {
+                        "name": "",
+                        "desc": "Add \"apply theme\" button",
+                        "progress": 100,
+                        "category": "Layout",
+                        "priority": "Normal"
+                    },
+                    {
+                        "name": "Add a settings tab for backup settings and implement this",
+                        "desc": "",
+                        "progress": 100,
+                        "category": "Layout",
+                        "priority": "Normal"
+                    },
+                    {
+                        "name": "Add sort by number in projects search",
+                        "desc": "",
+                        "progress": 100,
+                        "category": "Software",
+                        "priority": "Normal"
+                    },
+                    {
+                        "name": "",
+                        "desc": "The kanban categories should be colored by the selected color in the setting menu",
+                        "progress": 100,
+                        "category": "Software",
+                        "priority": "Normal"
+                    },
+                    {
+                        "name": "Add priority settigns to Kanban tasks",
+                        "desc": "",
+                        "progress": 100,
+                        "category": "Layout",
+                        "priority": "Normal"
+                    },
+                    {
+                        "name": "Is the pricing just a fucking RNG generator",
+                        "desc": "",
+                        "progress": 100,
+                        "category": "Layout",
+                        "priority": "Normal"
+                    },
+                    {
+                        "name": "All scopll bars are ugly as shit",
+                        "desc": "",
+                        "progress": 100,
+                        "category": "Layout",
+                        "priority": "Normal"
+                    },
+                    {
+                        "name": "Add mroe supplier API keys",
+                        "desc": "",
+                        "progress": 100,
+                        "category": "Layout",
+                        "priority": "Normal"
+                    },
+                    {
+                        "name": "Improve projects Search",
+                        "desc": "",
+                        "progress": 100,
+                        "category": "Layout",
+                        "priority": "Normal"
+                    }
+                ]
+            },
+            "checklist": {
+                "Schematic: Electrical Rules Check (ERC)": [],
+                "Schematic: Netlist Verification": [],
+                "Schematic: Bill of Materials (BOM) Review": [],
+                "Layout: Design Rules Check (DRC)": [],
+                "Layout: Footprint Verification": [],
+                "Layout: Component Placement Review": [],
+                "Layout: Critical Routing / Impedance": [],
+                "Layout: Silkscreen & Polarity Check": [],
+                "Layout: 3D Model Fit Check": [],
+                "Fabrication: Gerber Generation & Review": [],
+                "Fabrication: Drill Files Generated": [],
+                "Assembly: Pick & Place File Generated": []
+            },
+            "requirements": [],
+            "test_plan": {
+                "cases": [],
+                "config": {
+                    "categories": [
+                        "Functional",
+                        "Electrical",
+                        "Firmware",
+                        "Mechanical",
+                        "Safety",
+                        "Manufacturing",
+                        "Regression"
+                    ],
+                    "priorities": [
+                        "Critical",
+                        "High",
+                        "Normal",
+                        "Low"
+                    ],
+                    "types": [
+                        "Unit",
+                        "Subsystem",
+                        "System",
+                        "Integration",
+                        "Regression",
+                        "Validation"
+                    ]
+                }
+            },
+            "pricing_cache": {}
+        },
+        "Active DC Load": {
+            "metadata": {
+                "name": "Active DC Load",
+                "location": "",
+                "status": "Schematic Capture",
+                "revision": "A",
+                "type": "PCB",
+                "description": "",
+                "main_schematic": "",
+                "last_accessed": "2026-02-10 11:42:37",
+                "number": "0001",
+                "layout_file": ""
+            },
+            "kanban": {
+                "todo": [
+                    {
+                        "name": "Create Schematic",
+                        "desc": "",
+                        "progress": 0,
+                        "category": "Task",
+                        "priority": "High"
+                    },
+                    {
+                        "name": "Assign Footprints",
+                        "desc": "",
+                        "progress": 0,
+                        "category": "Task",
+                        "priority": "Normal"
+                    },
+                    {
+                        "name": "Run ERC",
+                        "desc": "",
+                        "progress": 0,
+                        "category": "Task",
+                        "priority": "Normal"
+                    },
+                    {
+                        "name": "Generate Netlist",
+                        "desc": "",
+                        "progress": 0,
+                        "category": "Task",
+                        "priority": "Normal"
+                    },
+                    {
+                        "name": "Outline PCB",
+                        "desc": "",
+                        "progress": 0,
+                        "category": "Task",
+                        "priority": "Normal"
+                    },
+                    {
+                        "name": "Place Components",
+                        "desc": "",
+                        "progress": 0,
+                        "category": "Task",
+                        "priority": "Normal"
+                    },
+                    {
+                        "name": "Route Tracks",
+                        "desc": "",
+                        "progress": 0,
+                        "category": "Task",
+                        "priority": "Normal"
+                    },
+                    {
+                        "name": "Run DRC",
+                        "desc": "",
+                        "progress": 0,
+                        "category": "Task",
+                        "priority": "Normal"
+                    },
+                    {
+                        "name": "Generate Gerbers",
+                        "desc": "",
+                        "progress": 0,
+                        "category": "Task",
+                        "priority": "Normal"
+                    },
+                    {
+                        "name": "Order Parts",
+                        "desc": "",
+                        "progress": 0,
+                        "category": "Task",
+                        "priority": "Normal"
+                    },
+                    {
+                        "name": "New Task",
+                        "desc": "",
+                        "progress": 0,
+                        "category": "",
+                        "priority": "Normal"
+                    }
+                ],
+                "prog": [],
+                "done": []
+            },
+            "bom_pricing": {},
+            "checklist": {
+                "Schematic: Electrical Rules Check (ERC)": [],
+                "Schematic: Netlist Verification": [],
+                "Schematic: Bill of Materials (BOM) Review": [],
+                "Layout: Design Rules Check (DRC)": [],
+                "Layout: Footprint Verification": [],
+                "Layout: Component Placement Review": [],
+                "Layout: Critical Routing / Impedance": [],
+                "Layout: Silkscreen & Polarity Check": [],
+                "Layout: 3D Model Fit Check": [],
+                "Fabrication: Gerber Generation & Review": [],
+                "Fabrication: Drill Files Generated": [],
+                "Assembly: Pick & Place File Generated": []
+            },
+            "requirements": [],
+            "structure": {
+                "tree": {
+                    "children": [
+                        {
+                            "children": [],
+                            "name": "Measurement.kicad_sch",
+                            "part_count": 97,
+                            "path": "${BASE_DIR}/..\\..\\Users\\larsk\\Documents\\KiCad\\9.0\\projects\\PCBA0001 - Active DC Load\\Active DC Load\\Measurement.kicad_sch"
+                        },
+                        {
+                            "children": [],
+                            "name": "Switch.kicad_sch",
+                            "part_count": 33,
+                            "path": "${BASE_DIR}/..\\..\\Users\\larsk\\Documents\\KiCad\\9.0\\projects\\PCBA0001 - Active DC Load\\Active DC Load\\Switch.kicad_sch"
+                        }
+                    ],
+                    "name": "PCBA0001 - Active DC Load.kicad_sch",
+                    "part_count": 261,
+                    "path": "${BASE_DIR}/..\\..\\Users\\larsk\\Documents\\KiCad\\9.0\\projects\\PCBA0001 - Active DC Load\\Active DC Load\\PCBA0001 - Active DC Load.kicad_sch"
+                },
+                "part_count": 345
+            },
+            "test_plan": {
+                "cases": [],
+                "config": {
+                    "categories": [
+                        "Functional",
+                        "Electrical",
+                        "Firmware",
+                        "Mechanical",
+                        "Safety",
+                        "Manufacturing",
+                        "Regression"
+                    ],
+                    "priorities": [
+                        "Critical",
+                        "High",
+                        "Normal",
+                        "Low"
+                    ],
+                    "types": [
+                        "Unit",
+                        "Subsystem",
+                        "System",
+                        "Integration",
+                        "Regression",
+                        "Validation"
+                    ]
+                }
+            },
+            "pricing_cache": {},
+            "tasks": [
+                {
+                    "id": "test-20260201151535007411",
+                    "name": "Test",
+                    "category": "Backlog",
+                    "status": "To Do",
+                    "notes": "",
+                    "subtasks": [
+                        {
+                            "id": "test-20260201151545909456",
+                            "title": "test",
+                            "done": false
+                        }
+                    ]
+                },
+                {
+                    "id": "test-20260201151540130034",
+                    "name": "test",
+                    "category": "Backlog",
+                    "status": "To Do",
+                    "notes": "",
+                    "subtasks": [
+                        {
+                            "id": "test-20260201154038545902",
+                            "title": "test",
+                            "done": false,
+                            "status": "To Do",
+                            "notes": "",
+                            "priority": "Normal",
+                            "due_date": ""
+                        }
+                    ],
+                    "priority": "Normal",
+                    "due_date": "2026-02-01"
+                },
+                {
+                    "id": "test-20260201152250705095",
+                    "name": "test",
+                    "category": "Backlog",
+                    "status": "To Do",
+                    "notes": "",
+                    "subtasks": []
+                }
+            ],
+            "time_entries": []
+        },
+        "PCB Probe Arm": {
+            "metadata": {
+                "name": "PCB Probe Arm",
+                "location": "",
+                "status": "Pre-Design",
+                "revision": "A",
+                "type": "PCB",
+                "description": "",
+                "main_schematic": "",
+                "last_accessed": "2026-02-01 17:30:49",
+                "number": "0003"
+            },
+            "kanban": {
+                "todo": [
+                    {
+                        "name": "Create Schematic",
+                        "desc": "",
+                        "progress": 0,
+                        "category": "Task"
+                    },
+                    {
+                        "name": "Assign Footprints",
+                        "desc": "",
+                        "progress": 0,
+                        "category": "Task"
+                    },
+                    {
+                        "name": "Run ERC",
+                        "desc": "",
+                        "progress": 0,
+                        "category": "Task"
+                    },
+                    {
+                        "name": "Generate Netlist",
+                        "desc": "",
+                        "progress": 0,
+                        "category": "Task"
+                    },
+                    {
+                        "name": "Outline PCB",
+                        "desc": "",
+                        "progress": 0,
+                        "category": "Task"
+                    },
+                    {
+                        "name": "Place Components",
+                        "desc": "",
+                        "progress": 0,
+                        "category": "Task"
+                    },
+                    {
+                        "name": "Route Tracks",
+                        "desc": "",
+                        "progress": 0,
+                        "category": "Task"
+                    },
+                    {
+                        "name": "Run DRC",
+                        "desc": "",
+                        "progress": 0,
+                        "category": "Task"
+                    },
+                    {
+                        "name": "Generate Gerbers",
+                        "desc": "",
+                        "progress": 0,
+                        "category": "Task"
+                    },
+                    {
+                        "name": "Order Parts",
+                        "desc": "",
+                        "progress": 0,
+                        "category": "Task"
+                    }
+                ],
+                "prog": [],
+                "done": []
+            },
+            "bom_pricing": {},
+            "checklist": {},
+            "requirements": [],
+            "test_plan": {
+                "cases": [],
+                "config": {
+                    "categories": [
+                        "Functional",
+                        "Electrical",
+                        "Firmware",
+                        "Mechanical",
+                        "Safety",
+                        "Manufacturing",
+                        "Regression"
+                    ],
+                    "priorities": [
+                        "Critical",
+                        "High",
+                        "Normal",
+                        "Low"
+                    ],
+                    "types": [
+                        "Unit",
+                        "Subsystem",
+                        "System",
+                        "Integration",
+                        "Regression",
+                        "Validation"
+                    ]
+                }
+            },
+            "pricing_cache": {}
+        },
+        "PCBA0004": {
+            "metadata": {
+                "name": "SMA Break out Board",
+                "location": "",
+                "status": "PCB Layout",
+                "revision": "A",
+                "type": "PCB",
+                "description": "",
+                "main_schematic": "",
+                "last_accessed": "2026-02-01 11:55:13",
+                "number": "0004"
+            },
+            "kanban": {
+                "todo": [
+                    {
+                        "name": "Order Parts",
+                        "desc": "",
+                        "progress": 0,
+                        "category": "Task",
+                        "priority": "Normal"
+                    }
+                ],
+                "prog": [],
+                "done": [
+                    {
+                        "name": "Create Schematic",
+                        "desc": "",
+                        "progress": 100,
+                        "category": "Task",
+                        "priority": "Normal"
+                    },
+                    {
+                        "name": "Generate Gerbers",
+                        "desc": "",
+                        "progress": 100,
+                        "category": "Task",
+                        "priority": "Normal"
+                    },
+                    {
+                        "name": "Run DRC",
+                        "desc": "",
+                        "progress": 100,
+                        "category": "Task",
+                        "priority": "Normal"
+                    },
+                    {
+                        "name": "Place Components",
+                        "desc": "",
+                        "progress": 100,
+                        "category": "Task",
+                        "priority": "Normal"
+                    },
+                    {
+                        "name": "Assign Footprints",
+                        "desc": "",
+                        "progress": 100,
+                        "category": "Task",
+                        "priority": "Normal"
+                    },
+                    {
+                        "name": "Run ERC",
+                        "desc": "",
+                        "progress": 100,
+                        "category": "Task",
+                        "priority": "Normal"
+                    },
+                    {
+                        "name": "Generate Netlist",
+                        "desc": "",
+                        "progress": 100,
+                        "category": "Task",
+                        "priority": "Normal"
+                    },
+                    {
+                        "name": "Outline PCB",
+                        "desc": "",
+                        "progress": 100,
+                        "category": "Task",
+                        "priority": "Normal"
+                    },
+                    {
+                        "name": "Route Tracks",
+                        "desc": "",
+                        "progress": 100,
+                        "category": "Task",
+                        "priority": "Normal"
+                    }
+                ]
+            },
+            "bom_pricing": {},
+            "checklist": {},
+            "requirements": [],
+            "test_plan": {
+                "cases": [],
+                "config": {
+                    "categories": [
+                        "Functional",
+                        "Electrical",
+                        "Firmware",
+                        "Mechanical",
+                        "Safety",
+                        "Manufacturing",
+                        "Regression"
+                    ],
+                    "priorities": [
+                        "Critical",
+                        "High",
+                        "Normal",
+                        "Low"
+                    ],
+                    "types": [
+                        "Unit",
+                        "Subsystem",
+                        "System",
+                        "Integration",
+                        "Regression",
+                        "Validation"
+                    ]
+                }
+            },
+            "pricing_cache": {}
+        },
+        "Miniuature Hotplate": {
+            "metadata": {
+                "name": "Miniuature Hotplate",
+                "location": "${BASE_DIR}/..\\..\\Users\\larsk\\Documents\\KiCad\\9.0\\projects\\PCBA0005 - Miniature Hotplate",
+                "status": "Pre-Design",
+                "revision": "A",
+                "type": "PCB",
+                "description": "",
+                "main_schematic": "${BASE_DIR}/..\\..\\Users\\larsk\\Documents\\KiCad\\9.0\\projects\\PCBA0005 - Miniature Hotplate\\PCBA0005 - Miniature Hotplate.kicad_sch",
+                "number": "0005",
+                "last_accessed": "2026-02-09 09:24:58",
+                "layout_file": "C:/Users/larsk/Documents/KiCad/9.0/projects/PCBA0005 - Miniature Hotplate/PCBA0005 - Miniature Hotplate.kicad_pcb"
+            },
+            "kanban": {
+                "todo": [
+                    {
+                        "name": "Create Schematic",
+                        "desc": "",
+                        "progress": 0,
+                        "category": "Task"
+                    },
+                    {
+                        "name": "Assign Footprints",
+                        "desc": "",
+                        "progress": 0,
+                        "category": "Task"
+                    },
+                    {
+                        "name": "Run ERC",
+                        "desc": "",
+                        "progress": 0,
+                        "category": "Task"
+                    },
+                    {
+                        "name": "Generate Netlist",
+                        "desc": "",
+                        "progress": 0,
+                        "category": "Task"
+                    },
+                    {
+                        "name": "Outline PCB",
+                        "desc": "",
+                        "progress": 0,
+                        "category": "Task"
+                    },
+                    {
+                        "name": "Place Components",
+                        "desc": "",
+                        "progress": 0,
+                        "category": "Task"
+                    },
+                    {
+                        "name": "Route Tracks",
+                        "desc": "",
+                        "progress": 0,
+                        "category": "Task"
+                    },
+                    {
+                        "name": "Run DRC",
+                        "desc": "",
+                        "progress": 0,
+                        "category": "Task"
+                    },
+                    {
+                        "name": "Generate Gerbers",
+                        "desc": "",
+                        "progress": 0,
+                        "category": "Task"
+                    },
+                    {
+                        "name": "Order Parts",
+                        "desc": "",
+                        "progress": 0,
+                        "category": "Task"
+                    }
+                ],
+                "prog": [],
+                "done": []
+            },
+            "bom_pricing": {},
+            "checklist": {},
+            "requirements": [],
+            "structure": {
+                "tree": {
+                    "children": [],
+                    "name": "PCBA0005 - Miniature Hotplate.kicad_sch",
+                    "part_count": 141,
+                    "path": "${BASE_DIR}/..\\..\\Users\\larsk\\Documents\\KiCad\\9.0\\projects\\PCBA0005 - Miniature Hotplate\\PCBA0005 - Miniature Hotplate.kicad_sch"
+                },
+                "part_count": 130
+            },
+            "test_plan": {
+                "cases": [],
+                "config": {
+                    "categories": [
+                        "Functional",
+                        "Electrical",
+                        "Firmware",
+                        "Mechanical",
+                        "Safety",
+                        "Manufacturing",
+                        "Regression"
+                    ],
+                    "priorities": [
+                        "Critical",
+                        "High",
+                        "Normal",
+                        "Low"
+                    ],
+                    "types": [
+                        "Unit",
+                        "Subsystem",
+                        "System",
+                        "Integration",
+                        "Regression",
+                        "Validation"
+                    ]
+                }
+            },
+            "pricing_cache": {}
+        },
+        "Ultrasonic Transducer Array": {
+            "metadata": {
+                "name": "Ultrasonic Transducer Array",
+                "location": "",
+                "status": "Pre-Design",
+                "revision": "A",
+                "type": "PCB",
+                "description": "",
+                "main_schematic": "",
+                "number": "0006",
+                "last_accessed": "2026-02-01 11:55:14"
+            },
+            "kanban": {
+                "todo": [
+                    {
+                        "name": "Create Schematic",
+                        "desc": "",
+                        "progress": 0,
+                        "category": "Task"
+                    },
+                    {
+                        "name": "Assign Footprints",
+                        "desc": "",
+                        "progress": 0,
+                        "category": "Task"
+                    },
+                    {
+                        "name": "Run ERC",
+                        "desc": "",
+                        "progress": 0,
+                        "category": "Task"
+                    },
+                    {
+                        "name": "Generate Netlist",
+                        "desc": "",
+                        "progress": 0,
+                        "category": "Task"
+                    },
+                    {
+                        "name": "Outline PCB",
+                        "desc": "",
+                        "progress": 0,
+                        "category": "Task"
+                    },
+                    {
+                        "name": "Place Components",
+                        "desc": "",
+                        "progress": 0,
+                        "category": "Task"
+                    },
+                    {
+                        "name": "Route Tracks",
+                        "desc": "",
+                        "progress": 0,
+                        "category": "Task"
+                    },
+                    {
+                        "name": "Run DRC",
+                        "desc": "",
+                        "progress": 0,
+                        "category": "Task"
+                    },
+                    {
+                        "name": "Generate Gerbers",
+                        "desc": "",
+                        "progress": 0,
+                        "category": "Task"
+                    },
+                    {
+                        "name": "Order Parts",
+                        "desc": "",
+                        "progress": 0,
+                        "category": "Task"
+                    }
+                ],
+                "prog": [],
+                "done": []
+            },
+            "bom_pricing": {},
+            "checklist": {},
+            "test_plan": {
+                "cases": [],
+                "config": {
+                    "categories": [
+                        "Functional",
+                        "Electrical",
+                        "Firmware",
+                        "Mechanical",
+                        "Safety",
+                        "Manufacturing",
+                        "Regression"
+                    ],
+                    "priorities": [
+                        "Critical",
+                        "High",
+                        "Normal",
+                        "Low"
+                    ],
+                    "types": [
+                        "Unit",
+                        "Subsystem",
+                        "System",
+                        "Integration",
+                        "Regression",
+                        "Validation"
+                    ]
+                }
+            },
+            "pricing_cache": {}
+        },
+        "Ultrasonic Transducer Array Driver": {
+            "metadata": {
+                "name": "Ultrasonic Transducer Array Driver",
+                "location": "",
+                "status": "Pre-Design",
+                "revision": "A",
+                "type": "PCB",
+                "description": "",
+                "main_schematic": "",
+                "number": "0007",
+                "last_accessed": "2026-02-01 11:55:15"
+            },
+            "kanban": {
+                "todo": [
+                    {
+                        "name": "Create Schematic",
+                        "desc": "",
+                        "progress": 0,
+                        "category": "Task"
+                    },
+                    {
+                        "name": "Assign Footprints",
+                        "desc": "",
+                        "progress": 0,
+                        "category": "Task"
+                    },
+                    {
+                        "name": "Run ERC",
+                        "desc": "",
+                        "progress": 0,
+                        "category": "Task"
+                    },
+                    {
+                        "name": "Generate Netlist",
+                        "desc": "",
+                        "progress": 0,
+                        "category": "Task"
+                    },
+                    {
+                        "name": "Outline PCB",
+                        "desc": "",
+                        "progress": 0,
+                        "category": "Task"
+                    },
+                    {
+                        "name": "Place Components",
+                        "desc": "",
+                        "progress": 0,
+                        "category": "Task"
+                    },
+                    {
+                        "name": "Route Tracks",
+                        "desc": "",
+                        "progress": 0,
+                        "category": "Task"
+                    },
+                    {
+                        "name": "Run DRC",
+                        "desc": "",
+                        "progress": 0,
+                        "category": "Task"
+                    },
+                    {
+                        "name": "Generate Gerbers",
+                        "desc": "",
+                        "progress": 0,
+                        "category": "Task"
+                    },
+                    {
+                        "name": "Order Parts",
+                        "desc": "",
+                        "progress": 0,
+                        "category": "Task"
+                    }
+                ],
+                "prog": [],
+                "done": []
+            },
+            "bom_pricing": {},
+            "checklist": {},
+            "requirements": [],
+            "test_plan": {
+                "cases": [],
+                "config": {
+                    "categories": [
+                        "Functional",
+                        "Electrical",
+                        "Firmware",
+                        "Mechanical",
+                        "Safety",
+                        "Manufacturing",
+                        "Regression"
+                    ],
+                    "priorities": [
+                        "Critical",
+                        "High",
+                        "Normal",
+                        "Low"
+                    ],
+                    "types": [
+                        "Unit",
+                        "Subsystem",
+                        "System",
+                        "Integration",
+                        "Regression",
+                        "Validation"
+                    ]
+                }
+            },
+            "pricing_cache": {}
+        },
+        "Lab Bench Power Supply Output Connector": {
+            "metadata": {
+                "name": "Lab Bench Output Connector",
+                "location": "${BASE_DIR}/..\\..\\Users\\larsk\\Documents\\KiCad\\9.0\\projects\\PCBA0008 - Lab Bench Output Connector",
+                "status": "Pre-Design",
+                "revision": "A",
+                "type": "PCB",
+                "description": "",
+                "main_schematic": "${BASE_DIR}/..\\..\\Users\\larsk\\Documents\\KiCad\\9.0\\projects\\PCBA0008 - Lab Bench Output Connector\\PCBA0008 - Lab Bench Power Supply Output Connector.kicad_sch",
+                "number": "0008",
+                "last_accessed": "2026-02-01 17:30:34",
+                "layout_file": "C:/Users/larsk/Documents/KiCad/9.0/projects/PCBA0008 - Lab Bench Output Connector/PCBA0008 - Lab Bench Power Supply Output Connector.kicad_pcb"
+            },
+            "kanban": {
+                "todo": [
+                    {
+                        "name": "Create Schematic",
+                        "desc": "",
+                        "progress": 0,
+                        "category": "Task"
+                    },
+                    {
+                        "name": "Assign Footprints",
+                        "desc": "",
+                        "progress": 0,
+                        "category": "Task"
+                    },
+                    {
+                        "name": "Run ERC",
+                        "desc": "",
+                        "progress": 0,
+                        "category": "Task"
+                    },
+                    {
+                        "name": "Generate Netlist",
+                        "desc": "",
+                        "progress": 0,
+                        "category": "Task"
+                    },
+                    {
+                        "name": "Outline PCB",
+                        "desc": "",
+                        "progress": 0,
+                        "category": "Task"
+                    },
+                    {
+                        "name": "Place Components",
+                        "desc": "",
+                        "progress": 0,
+                        "category": "Task"
+                    },
+                    {
+                        "name": "Route Tracks",
+                        "desc": "",
+                        "progress": 0,
+                        "category": "Task"
+                    },
+                    {
+                        "name": "Run DRC",
+                        "desc": "",
+                        "progress": 0,
+                        "category": "Task"
+                    },
+                    {
+                        "name": "Generate Gerbers",
+                        "desc": "",
+                        "progress": 0,
+                        "category": "Task"
+                    },
+                    {
+                        "name": "Order Parts",
+                        "desc": "",
+                        "progress": 0,
+                        "category": "Task"
+                    }
+                ],
+                "prog": [],
+                "done": []
+            },
+            "bom_pricing": {},
+            "checklist": {},
+            "requirements": [],
+            "structure": {
+                "tree": {
+                    "children": [
+                        {
+                            "children": [],
+                            "name": "Current_Sense.kicad_sch",
+                            "part_count": 150,
+                            "path": "${BASE_DIR}/..\\..\\Users\\larsk\\Documents\\KiCad\\9.0\\projects\\PCBA0008 - Lab Bench Output Connector\\Current_Sense.kicad_sch"
+                        },
+                        {
+                            "children": [],
+                            "name": "Output_Switch.kicad_sch",
+                            "part_count": 22,
+                            "path": "${BASE_DIR}/..\\..\\Users\\larsk\\Documents\\KiCad\\9.0\\projects\\PCBA0008 - Lab Bench Output Connector\\Output_Switch.kicad_sch"
+                        },
+                        {
+                            "children": [],
+                            "name": "Voltage_Sense.kicad_sch",
+                            "part_count": 90,
+                            "path": "${BASE_DIR}/..\\..\\Users\\larsk\\Documents\\KiCad\\9.0\\projects\\PCBA0008 - Lab Bench Output Connector\\Voltage_Sense.kicad_sch"
+                        }
+                    ],
+                    "name": "PCBA0008 - Lab Bench Power Supply Output Connector.kicad_sch",
+                    "part_count": 6,
+                    "path": "${BASE_DIR}/..\\..\\Users\\larsk\\Documents\\KiCad\\9.0\\projects\\PCBA0008 - Lab Bench Output Connector\\PCBA0008 - Lab Bench Power Supply Output Connector.kicad_sch"
+                },
+                "part_count": 227
+            },
+            "test_plan": {
+                "cases": [],
+                "config": {
+                    "categories": [
+                        "Functional",
+                        "Electrical",
+                        "Firmware",
+                        "Mechanical",
+                        "Safety",
+                        "Manufacturing",
+                        "Regression"
+                    ],
+                    "priorities": [
+                        "Critical",
+                        "High",
+                        "Normal",
+                        "Low"
+                    ],
+                    "types": [
+                        "Unit",
+                        "Subsystem",
+                        "System",
+                        "Integration",
+                        "Regression",
+                        "Validation"
+                    ]
+                }
+            },
+            "pricing_cache": {}
+        },
+        "Lab Bench Aux Power": {
+            "metadata": {
+                "name": "Lab Bench Aux Power",
+                "location": "${BASE_DIR}/..\\..\\Users\\larsk\\Documents\\KiCad\\9.0\\projects\\PCBA0009 - Lab Bench Aux power",
+                "status": "Pre-Design",
+                "revision": "A",
+                "type": "PCB",
+                "description": "",
+                "main_schematic": "${BASE_DIR}/..\\..\\Users\\larsk\\Documents\\KiCad\\9.0\\projects\\PCBA0009 - Lab Bench Aux power\\PCBA0009 - Lab Bench Aux Power\\PCBA0009 - Lab Bench Aux Power.kicad_sch",
+                "layout_file": "C:/Users/larsk/Documents/KiCad/9.0/projects\\PCBA0009 - Lab Bench Aux power\\PCBA0009 - Lab Bench Aux Power\\PCBA0009 - Lab Bench Aux Power.kicad_pcb",
+                "number": "0009",
+                "last_accessed": "2026-02-09 10:13:20"
+            },
+            "kanban": {
+                "todo": [
+                    {
+                        "name": "Create Schematic",
+                        "desc": "",
+                        "progress": 0,
+                        "category": "Task",
+                        "priority": "Normal"
+                    },
+                    {
+                        "name": "Assign Footprints",
+                        "desc": "",
+                        "progress": 0,
+                        "category": "Task",
+                        "priority": "Normal"
+                    },
+                    {
+                        "name": "Run ERC",
+                        "desc": "",
+                        "progress": 0,
+                        "category": "Task",
+                        "priority": "Normal"
+                    },
+                    {
+                        "name": "Generate Netlist",
+                        "desc": "",
+                        "progress": 0,
+                        "category": "Task",
+                        "priority": "Normal"
+                    },
+                    {
+                        "name": "Outline PCB",
+                        "desc": "",
+                        "progress": 0,
+                        "category": "Task",
+                        "priority": "Normal"
+                    },
+                    {
+                        "name": "Place Components",
+                        "desc": "",
+                        "progress": 0,
+                        "category": "Task",
+                        "priority": "Normal"
+                    },
+                    {
+                        "name": "Route Tracks",
+                        "desc": "",
+                        "progress": 0,
+                        "category": "Task",
+                        "priority": "Normal"
+                    },
+                    {
+                        "name": "Run DRC",
+                        "desc": "",
+                        "progress": 0,
+                        "category": "Task",
+                        "priority": "Normal"
+                    },
+                    {
+                        "name": "Generate Gerbers",
+                        "desc": "",
+                        "progress": 0,
+                        "category": "Task",
+                        "priority": "Normal"
+                    },
+                    {
+                        "name": "Order Parts",
+                        "desc": "",
+                        "progress": 0,
+                        "category": "Task",
+                        "priority": "Normal"
+                    }
+                ],
+                "prog": [],
+                "done": []
+            },
+            "bom_pricing": {},
+            "checklist": {
+                "Schematic: Electrical Rules Check (ERC)": [],
+                "Schematic: Netlist Verification": [],
+                "Schematic: Bill of Materials (BOM) Review": [],
+                "Layout: Design Rules Check (DRC)": [],
+                "Layout: Footprint Verification": [],
+                "Layout: Component Placement Review": [],
+                "Layout: Critical Routing / Impedance": [],
+                "Layout: Silkscreen & Polarity Check": [],
+                "Layout: 3D Model Fit Check": [],
+                "Fabrication: Gerber Generation & Review": [],
+                "Fabrication: Drill Files Generated": [],
+                "Assembly: Pick & Place File Generated": []
+            },
+            "test_plan": {
+                "cases": [],
+                "config": {
+                    "categories": [
+                        "Functional",
+                        "Electrical",
+                        "Firmware",
+                        "Mechanical",
+                        "Safety",
+                        "Manufacturing",
+                        "Regression"
+                    ],
+                    "priorities": [
+                        "Critical",
+                        "High",
+                        "Normal",
+                        "Low"
+                    ],
+                    "types": [
+                        "Unit",
+                        "Subsystem",
+                        "System",
+                        "Integration",
+                        "Regression",
+                        "Validation"
+                    ]
+                }
+            },
+            "requirements": []
+        }
+    },
+    "project_types": [
+        "PCB",
+        "Firmware",
+        "Mechanical",
+        "Other",
+        "Software"
+    ],
+    "category_restrictions": {},
+    "theme": "Dark",
+    "global_notes": "",
+    "external_tools": {
+        "editor": "",
+        "kicad": ""
+    },
+    "backup": {
+        "path": "${BASE_DIR}/scripts\\Parts_Checker",
+        "backup_on_exit": true,
+        "app_data": {
+            "enabled": true,
+            "interval_min": 15,
+            "max_backups": 10,
+            "last_run": "2026-02-10 09:54:52"
+        },
+        "symbols": {
+            "enabled": true,
+            "interval_min": 60,
+            "max_backups": 3,
+            "last_run": "2026-02-10 09:54:52"
+        },
+        "footprints": {
+            "enabled": true,
+            "interval_min": 60,
+            "max_backups": 3,
+            "last_run": "2026-02-10 09:54:52"
+        }
+    },
+    "checklist_templates": {
+        "Standard": {
+            "Schematic: Electrical Rules Check (ERC)": [],
+            "Schematic: Netlist Verification": [],
+            "Schematic: Bill of Materials (BOM) Review": [],
+            "Layout: Design Rules Check (DRC)": [],
+            "Layout: Footprint Verification": [],
+            "Layout: Component Placement Review": [],
+            "Layout: Critical Routing / Impedance": [],
+            "Layout: Silkscreen & Polarity Check": [],
+            "Layout: 3D Model Fit Check": [],
+            "Fabrication: Gerber Generation & Review": [],
+            "Fabrication: Drill Files Generated": [],
+            "Assembly: Pick & Place File Generated": []
+        }
+    },
+    "kanban_templates": {
+        "Standard": [
+            "Create Schematic",
+            "Assign Footprints",
+            "Run ERC",
+            "Generate Netlist",
+            "Outline PCB",
+            "Place Components",
+            "Route Tracks",
+            "Run DRC",
+            "Generate Gerbers",
+            "Order Parts"
+        ]
+    },
+    "kanban_categories": {
+        "Layout": "#00aa00",
+        "Schematic": "#95a5a6",
+        "Software": "#b9ffe0"
+    },
+    "project_paths": [
+        "${BASE_DIR}/projects\\PCBA0002 - Lab Bench Power Supply",
+        "${BASE_DIR}/projects\\PCBA0001 - Active DC Load"
+    ],
+    "kanban": {
+        "todo": [
+            {
+                "name": "test",
+                "desc": "test\n",
+                "progress": 0
+            }
+        ],
+        "prog": [
+            {
+                "name": "test",
+                "desc": "test\n",
+                "progress": 0
+            }
+        ],
+        "done": [
+            {
+                "name": "test",
+                "desc": "test\n",
+                "progress": 0
+            }
+        ]
+    },
+    "part_status": {},
+    "project_metadata": {
+        "name": "Lab Bench Power Supply",
+        "number": "0002",
+        "revision": "A",
+        "status": "Pre-Design",
+        "type": "PCB",
+        "location": "${BASE_DIR}/projects\\PCBA0002 - Lab Bench Power Supply\\PCBA0002 - Lab Bench Power Supply",
+        "description": "",
+        "main_schematic": "${BASE_DIR}/projects\\PCBA0002 - Lab Bench Power Supply\\PCBA0002 - Lab Bench Power Supply\\PCBA0002 - Lab Bench Power Supply.kicad_sch",
+        "layout_file": "C:/KiCad/9.0/projects\\PCBA0002 - Lab Bench Power Supply\\PCBA0002 - Lab Bench Power Supply\\PCBA0002 - Lab Bench Power Supply.kicad_pcb"
+    },
+    "api_digikey_id": "",
+    "api_digikey_secret": "",
+    "api_mouser_key": "",
+    "api_lcsc_id": "",
+    "api_arrow_key": "",
+    "api_tme_token": "",
+    "api_farnell_key": "",
+    "ui_scale": 100,
+    "tool_editor": "",
+    "tool_kicad": "",
+    "checklist_template_meta": {
+        "Standard": {
+            "version": "1.0",
+            "updated": ""
+        }
+    },
+    "project_metadata_defaults": {
+        "default_revision": "A",
+        "default_description": ""
+    },
+    "document_tags": {},
+    "git_repos": [
+        {
+            "name": "Project: Lab Bench Output Connector",
+            "path": "C:/Users/larsk/Documents/KiCad/9.0/projects/PCBA0008 - Lab Bench Output Connector"
+        },
+        {
+            "name": "Project: Lab Bench Power Supply",
+            "path": "C:/Users/larsk/Documents/KiCad/9.0/projects\\PCBA0002 - Lab Bench Power Supply"
+        },
+        {
+            "name": "Project: Miniuature Hotplate",
+            "path": "C:/Users/larsk/Documents/KiCad/9.0/projects/PCBA0005 - Miniature Hotplate"
+        }
+    ],
+    "git_last_repo": "C:/Users/larsk/Documents/KiCad/9.0/projects\\PCBA0002 - Lab Bench Power Supply",
+    "project_statuses": [
+        "Pre-Design",
+        "Schematic Capture",
+        "PCB Layout",
+        "Prototyping",
+        "Validation",
+        "Released",
+        "Abandoned"
+    ],
+    "kanban_priority_weights": {
+        "Critical": 5.0,
+        "High": 3.0,
+        "Normal": 1.0,
+        "Low": 0.5
+    },
+    "ui_font": "MS Reference Sans Serif"
+}

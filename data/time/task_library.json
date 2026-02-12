@@ -1,0 +1,186 @@
+{
+  "categories": [
+    {
+      "name": "Design",
+      "color": "#6366f1",
+      "description": ""
+    },
+    {
+      "name": "Layout",
+      "color": "#0ea5e9",
+      "description": ""
+    },
+    {
+      "name": "Review",
+      "color": "#f97316",
+      "description": ""
+    },
+    {
+      "name": "Support",
+      "color": "#22c55e",
+      "description": ""
+    },
+    {
+      "name": "Research",
+      "color": "#a855f7",
+      "description": ""
+    }
+  ],
+  "tasks": [
+    {
+      "name": "Schematic Capture",
+      "category": "Design",
+      "color": "#7c3aed",
+      "description": "Place symbols, wire nets, and annotate the schematic for review.",
+      "default_duration": 2.0,
+      "tags": [
+        "schematic",
+        "capture"
+      ],
+      "subtasks": [
+        {
+          "title": "Place Components",
+          "estimate": 0.75
+        },
+        {
+          "title": "Wire Nets",
+          "estimate": 0.5
+        },
+        {
+          "title": "Annotate Standards",
+          "estimate": 0.25
+        }
+      ]
+    },
+    {
+      "name": "Footprint Assignment",
+      "category": "Layout",
+      "color": "#2563eb",
+      "description": "Match symbols to vetted footprints and verify variants.",
+      "default_duration": 1.5,
+      "tags": [
+        "layout",
+        "fp"
+      ],
+      "subtasks": [
+        {
+          "title": "Verify Library",
+          "estimate": 0.25
+        },
+        {
+          "title": "Assign Footprints",
+          "estimate": 0.75
+        },
+        {
+          "title": "Lock References",
+          "estimate": 0.25
+        }
+      ]
+    },
+    {
+      "name": "PCB Routing",
+      "category": "Layout",
+      "color": "#0ea5e9",
+      "description": "Route critical nets, define pours, and clean up traces.",
+      "default_duration": 3.0,
+      "tags": [
+        "routing",
+        "critical"
+      ],
+      "subtasks": [
+        {
+          "title": "Define Stackup",
+          "estimate": 0.25
+        },
+        {
+          "title": "Route Critical Nets",
+          "estimate": 1.5
+        },
+        {
+          "title": "Auto-Routing Cleanup",
+          "estimate": 0.75
+        }
+      ]
+    },
+    {
+      "name": "Design Review",
+      "category": "Review",
+      "color": "#f97316",
+      "description": "Run cross-team reviews, checklist walk-through, and approvals.",
+      "default_duration": 1.0,
+      "tags": [
+        "review",
+        "approval"
+      ],
+      "subtasks": [
+        {
+          "title": "Review Checklist",
+          "estimate": 0.5
+        },
+        {
+          "title": "Update Notes",
+          "estimate": 0.25
+        },
+        {
+          "title": "Document Decisions",
+          "estimate": 0.25
+        }
+      ]
+    },
+    {
+      "name": "Documentation Sprint",
+      "category": "Support",
+      "color": "#22c55e",
+      "description": "Capture BOM, notes, and update supporting docs for handoff.",
+      "default_duration": 1.25,
+      "tags": [
+        "docs",
+        "handoff"
+      ],
+      "subtasks": [
+        {
+          "title": "Update BOM",
+          "estimate": 0.5
+        },
+        {
+          "title": "Notes & Learnings",
+          "estimate": 0.35
+        },
+        {
+          "title": "Team Sync",
+          "estimate": 0.4
+        }
+      ]
+    },
+    {
+      "name": "Research Spike",
+      "category": "Research",
+      "color": "#a855f7",
+      "description": "Experiment with unfamiliar tools or new architectures.",
+      "default_duration": 2.0,
+      "tags": [
+        "research",
+        "explore"
+      ],
+      "subtasks": [
+        {
+          "title": "Proof of Concept",
+          "estimate": 1.5
+        },
+        {
+          "title": "Collect Findings",
+          "estimate": 0.5
+        }
+      ]
+    },
+    {
+      "name": "New Task",
+      "category": "Design",
+      "color": "#7c3aed",
+      "description": "",
+      "default_duration": 1.0,
+      "tags": [],
+      "subtasks": []
+    }
+  ]
+}

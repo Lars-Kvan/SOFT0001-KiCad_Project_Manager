@@ -1,0 +1,160 @@
+{
+  "project_key": "Lab Bench Power Supply",
+  "project": {
+    "metadata": {
+      "name": "Lab Bench Power Supply",
+      "number": "0002",
+      "revision": "A",
+      "status": "Pre-Design",
+      "type": "PCB",
+      "location": "C:/Users/larsk/Documents/KiCad/9.0/projects/PCBA0002 - Lab Bench Power Supply",
+      "description": "",
+      "main_schematic": "",
+      "last_accessed": "2026-02-12 20:31:06",
+      "layout_file": "",
+      "git_directory": "",
+      "git_same_as_location": true
+    },
+    "kanban": {
+      "todo": [],
+      "prog": [],
+      "done": []
+    },
+    "checklist": {},
+    "structure": {
+      "tree": {
+        "children": [
+          {
+            "children": [],
+            "name": "ADC.kicad_sch",
+            "part_count": 150,
+            "path": "${BASE_DIR}/../KiCad/9.0/projects/PCBA0002 - Lab Bench Power Supply/PCBA0002 - Lab Bench Power Supply/ADC.kicad_sch"
+          },
+          {
+            "children": [],
+            "name": "Aux Power.kicad_sch",
+            "part_count": 56,
+            "path": "${BASE_DIR}/../KiCad/9.0/projects/PCBA0002 - Lab Bench Power Supply/PCBA0002 - Lab Bench Power Supply/Aux Power.kicad_sch"
+          },
+          {
+            "children": [],
+            "name": "DC-DC Controller.kicad_sch",
+            "part_count": 54,
+            "path": "${BASE_DIR}/../KiCad/9.0/projects/PCBA0002 - Lab Bench Power Supply/PCBA0002 - Lab Bench Power Supply/DC-DC Controller.kicad_sch"
+          },
+          {
+            "children": [],
+            "name": "DC-DC Controller.kicad_sch",
+            "part_count": 54,
+            "path": "${BASE_DIR}/../KiCad/9.0/projects/PCBA0002 - Lab Bench Power Supply/PCBA0002 - Lab Bench Power Supply/DC-DC Controller.kicad_sch"
+          },
+          {
+            "children": [],
+            "name": "Gate_driver.kicad_sch",
+            "part_count": 73,
+            "path": "${BASE_DIR}/../KiCad/9.0/projects/PCBA0002 - Lab Bench Power Supply/PCBA0002 - Lab Bench Power Supply/Gate_driver.kicad_sch"
+          },
+          {
+            "children": [],
+            "name": "Gate_driver.kicad_sch",
+            "part_count": 73,
+            "path": "${BASE_DIR}/../KiCad/9.0/projects/PCBA0002 - Lab Bench Power Supply/PCBA0002 - Lab Bench Power Supply/Gate_driver.kicad_sch"
+          },
+          {
+            "children": [],
+            "name": "Gate_driver.kicad_sch",
+            "part_count": 73,
+            "path": "${BASE_DIR}/../KiCad/9.0/projects/PCBA0002 - Lab Bench Power Supply/PCBA0002 - Lab Bench Power Supply/Gate_driver.kicad_sch"
+          },
+          {
+            "children": [],
+            "name": "Gate_driver.kicad_sch",
+            "part_count": 73,
+            "path": "${BASE_DIR}/../KiCad/9.0/projects/PCBA0002 - Lab Bench Power Supply/PCBA0002 - Lab Bench Power Supply/Gate_driver.kicad_sch"
+          },
+          {
+            "children": [],
+            "name": "Input.kicad_sch",
+            "part_count": 52,
+            "path": "${BASE_DIR}/../KiCad/9.0/projects/PCBA0002 - Lab Bench Power Supply/PCBA0002 - Lab Bench Power Supply/Input.kicad_sch"
+          },
+          {
+            "children": [],
+            "name": "Output Filter 2.kicad_sch",
+            "part_count": 13,
+            "path": "${BASE_DIR}/../KiCad/9.0/projects/PCBA0002 - Lab Bench Power Supply/PCBA0002 - Lab Bench Power Supply/Output Filter 2.kicad_sch"
+          },
+          {
+            "children": [],
+            "name": "Output_filter.kicad_sch",
+            "part_count": 57,
+            "path": "${BASE_DIR}/../KiCad/9.0/projects/PCBA0002 - Lab Bench Power Supply/PCBA0002 - Lab Bench Power Supply/Output_filter.kicad_sch"
+          },
+          {
+            "children": [],
+            "name": "Output_Switch.kicad_sch",
+            "part_count": 22,
+            "path": "${BASE_DIR}/../KiCad/9.0/projects/PCBA0002 - Lab Bench Power Supply/PCBA0002 - Lab Bench Power Supply/Output_Switch.kicad_sch"
+          },
+          {
+            "children": [],
+            "name": "uC.kicad_sch",
+            "part_count": 146,
+            "path": "${BASE_DIR}/../KiCad/9.0/projects/PCBA0002 - Lab Bench Power Supply/PCBA0002 - Lab Bench Power Supply/uC.kicad_sch"
+          },
+          {
+            "children": [],
+            "name": "untitled.kicad_sch",
+            "part_count": 42,
+            "path": "${BASE_DIR}/../KiCad/9.0/projects/PCBA0002 - Lab Bench Power Supply/PCBA0002 - Lab Bench Power Supply/untitled.kicad_sch"
+          },
+          {
+            "children": [],
+            "name": "USB.kicad_sch",
+            "part_count": 45,
+            "path": "${BASE_DIR}/../KiCad/9.0/projects/PCBA0002 - Lab Bench Power Supply/PCBA0002 - Lab Bench Power Supply/USB.kicad_sch"
+          },
+          {
+            "children": [],
+            "name": "Voltage Sense.kicad_sch",
+            "part_count": 90,
+            "path": "${BASE_DIR}/../KiCad/9.0/projects/PCBA0002 - Lab Bench Power Supply/PCBA0002 - Lab Bench Power Supply/Voltage Sense.kicad_sch"
+          }
+        ],
+        "name": "PCBA0002 - Lab Bench Power Supply.kicad_sch",
+        "part_count": 127,
+        "path": "${BASE_DIR}/../KiCad/9.0/projects/PCBA0002 - Lab Bench Power Supply/PCBA0002 - Lab Bench Power Supply/PCBA0002 - Lab Bench Power Supply.kicad_sch"
+      },
+      "part_count": 670
+    },
+    "requirements": [],
+    "test_plan": {
+      "cases": [],
+      "config": {
+        "categories": [
+          "Functional",
+          "Electrical",
+          "Firmware",
+          "Mechanical",
+          "Safety",
+          "Manufacturing",
+          "Regression"
+        ],
+        "priorities": [
+          "Critical",
+          "High",
+          "Normal",
+          "Low"
+        ],
+        "types": [
+          "Unit",
+          "Subsystem",
+          "System",
+          "Integration",
+          "Regression",
+          "Validation"
+        ]
+      }
+    }
+  }
+}

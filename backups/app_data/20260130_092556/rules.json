@@ -1,0 +1,104 @@
+{
+    "global": {
+        "MPN": "",
+        "Description": "",
+        "Footprint": "",
+        "Value": "",
+        "Reference": ""
+    },
+    "library": {
+        "PL Resistor SMD": {
+            "Rated Power": "",
+            "Tolerance": ""
+        },
+        "PL Capacitor MLCC": {
+            "Rated Voltage": "",
+            "Dielectric": "",
+            "Tolerance": ""
+        },
+        "PL Capacitor Electrolytic": {
+            "Rated Voltage": "",
+            "Tolerance": ""
+        },
+        "PL Connector RF": {
+            "Max Frequency": ""
+        },
+        "PL Connector Power": {
+            "Rated Voltage": "",
+            "Rated Current": ""
+        },
+        "PL Connector Terminal": {
+            "Rated Voltage": "",
+            "Rated Current": ""
+        },
+        "PL Diode LED": {
+            "Rated Current": "",
+            "Wavelength": "",
+            "Label": "",
+            "Forward Voltage": ""
+        },
+        "PL Magnetics Inductor Power": {
+            "Rated Current": "",
+            "Shielding": ""
+        },
+        "PL Magnetics Inductor Signal": {
+            "Rated Current": "",
+            "Shielding": ""
+        }
+    },
+    "exemptions": {
+        "libraries": {
+            "PL Power Symbols": [
+                "MPN"
+            ]
+        },
+        "parts": {
+            "PL Capacitor Electrolytic:C_Polarized_Template": [
+                "MPN",
+                "Rated Voltage",
+                "Tolerance"
+            ],
+            "PL Capacitor Polymer:C_Polarized_Template": [
+                "MPN"
+            ],
+            "PL Resistor SMD:Short_0402": [
+                "MPN",
+                "Rated Power",
+                "Tolerance"
+            ],
+            "PL Mechanical Mounting Hole:M2_Via": [
+                "MPN"
+            ],
+            "PL Mechanical Mounting Hole:M3_Via": [
+                "MPN"
+            ],
+            "PL Mechanical Mounting Hole:M5_Via": [
+                "MPN"
+            ],
+            "PL Net Tie:NetTie_2_0.154mm": [
+                "MPN"
+            ],
+            "PL Test Point:Test_Point_D1.0mm": [
+                "MPN"
+            ],
+            "PL Test Point:Test_Point_D1.0mm_GND": [
+                "MPN"
+            ],
+            "PL Transistor BJT:PNP_Template": [
+                "MPN"
+            ],
+            "PL Wire Pad:SMD_Pad_Template": [
+                "MPN"
+            ],
+            "PL Diode LED:LED_Template": [
+                "Rated Current"
+            ],
+            "PL Diode Schottky:Schottky_template": [
+                "MPN"
+            ],
+            "PL Connector Header:Conn_01x02__Male_Template": [
+                "MPN"
+            ]
+        }
+    }
+}
