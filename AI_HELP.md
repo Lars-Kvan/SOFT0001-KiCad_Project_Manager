@@ -1,30 +1,40 @@
 # AI Helper Notes
 
-- Start with `rg` when searching; use `python -m py_compile <file>` for quick syntax sanity checks.
-- `main.py` is still the entry point, `backend/logic.py` wires the managers directly (the old manager factory helpers are gone), and `ui/core/main_window.py` builds tabs.
-- Central data lives in `data/config/settings.json`, `data/cache/schematic_cache.json`, and `data/cache/library_cache.json`.
+- Use `rg` first for code search and `rg --files` for inventory.
+- Quick syntax check: `python -m compileall -q backend ui main.py logger.py`.
+- `main.py` is the entry point.
+- `backend/logic.py` is the integration hub for managers/services.
+- `ui/core/main_window.py` owns top-level tab composition.
 
-## Entry points & flows
+## Current Architecture
 
-- `AppLogic` is the glue: settings, backups, validators, pricing, BOM and project managers all register there.
-- `backend/indexers.py` now owns the symbol/footprint cache lifecycle (SymbolIndexer + FootprintIndexer), and `AppLogic` routes `scan_libraries`/`scan_footprint_libraries` through it.
-- `backend/project_manager.py` handles registry and caches schematic metadata; it now just proxies BOM generation to `logic.bom_service`.
-- UI views (e.g., `ui/views/ui_dashboard.py`, `ui/views/project_details_view.py`) call `logic.generate_bom`, which delegates to `backend/bom_manager.py`.
+- Core orchestration: `backend/logic.py`
+- Project operations/indexing: `backend/project_manager.py`
+- Library/footprint indexing and cache writes: `backend/indexers.py`
+- BOM service: `backend/bom_manager.py`
+- Validation stack: `backend/validator.py`, `backend/validation_service.py`, `backend/validation_models.py`
+- Backups: `backend/backup_manager.py`
+- Path plumbing: `backend/path_utils.py`, `backend/paths_config.py`
+- UI tabs/views: `ui/views/*.py`
+- Shared UI components: `ui/widgets/*.py`
+- Shared theme/icon resources: `ui/resources/styles.py`, `ui/resources/icons.py`
 
-## BOM & caches
+## Active Data Locations
 
-- `backend/bom_manager.py` hosts the new `BOMService`. Use `logic.bom_service.generate_bom(...)` when additional BOMs are needed.
-- The library/footprint caches are still stored in `data/cache/library_cache.json` and `data/cache/footprint_cache.json`, but `scan_libraries` delegates to `backend.indexers.SymbolIndexer`/`FootprintIndexer` to manage them (the old `cache_manager` helper was removed).
+- Settings and rules: `data/config/settings.json`, `data/config/rules.json`
+- Project index/registry: `data/config/projects.json` and `data/config/projects/proj_*.json`
+- Optional app presets/config: `data/config/app_settings.json`, `data/config/presets.json`, `data/config/kicad_standards.json`
+- Caches: `data/cache/library_cache.json`, `data/cache/footprint_cache.json`, `data/cache/schematic_cache.json`
+- Time tracking: `data/time/time_tracker.json`, `data/time/time_data.json`, `data/time/task_library.json`
 
-## Fast-AI workflow notes (relaxed)
+## Practical Edit Guidance
 
-- You can skip the older advice about wrapping every `paintEvent` in `with ui.widgets.paint_utils.painting(self)` unless you're modifying a paint-heavy widget; general PySide6 painting practices are sufficient.
-- Focus on clear, small diffs that keep ASCII and existing naming conventions (`snake_case`, spaces over tabs). Avoid duplicating helper logic; reuse `ui/widgets` components when possible.
-- Console-heavy helpers should call shared utilities (e.g., `ui/_subprocess_utils.py`) only when you need to hide windows; otherwise, keep direct subprocess usage minimal.
-- Prioritize quick wins: reorganize shared logic (managers/services) before rewiring UI, and document new shortcuts or helpers you introduce.
+- Prefer editing `ui/views/*` and `ui/widgets/*`; legacy duplicate wrappers under `ui/*.py` were removed.
+- Keep shared UI helpers centralized in `ui/widgets/` and `ui/resources/` instead of duplicating code in a single view.
+- For subprocess calls that should hide Windows consoles, use `ui/_subprocess_utils.py`.
+- When changing project-level behavior, patch `backend/logic.py` plus the owning manager/service, not only UI handlers.
 
-## Helpful references
+## Runtime Artifacts
 
-- Notifications/toasts live under `ui/widgets/toast.py` (optional utilities in `ui/widgets` and `ui/resources`).
-- Project settings, backup controls, and validation rules are saved in `data/config/settings.json`, `rules.json`, and `app_data`/`backups` folders.
-- Keep new helpers centralized; add shared utilities to `ui/widgets/` or `ui/resources/` rather than duplicating per view.
+- Backup/export artifacts (`backups/`, `app_data/`, `symbols_*.zip`, `footprints_*.zip`) are generated at runtime and can be cleaned when stale.
+- Root-level config/cache duplicates (`settings.json`, `rules.json`, `library_cache.json`, etc.) are legacy and should not be reintroduced.
