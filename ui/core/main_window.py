@@ -42,7 +42,7 @@ from ui.core.warning_center import warning_center
 from ui.views.ui_project import ProjectManagerTab
 from ui.views.ui_explorer import ExplorerTab
 from ui.views.ui_settings import SettingsTab
-from ui.views.ui_git import GitTab, GitOverviewTab, LibraryGitTab
+from ui.views.ui_git import GitTab, GitOverviewTab
 from ui.views.ui_validation import ValidationTab
 from ui.views.ui_dashboard import DashboardTab
 from ui.views.ui_notebook import NotebookTab
@@ -566,8 +566,6 @@ class MainWindow(QMainWindow):
         lib_icon_color = icon_color_for_theme(self.logic.settings.get("theme", "Light"))
         self.lib_tabs.addTab(self.explorer_view, Icons.get_icon(Icons.SEARCH, lib_icon_color), "Explorer")
         self.lib_tabs.addTab(self.validation_view, Icons.get_icon(Icons.DOC, lib_icon_color), "Validation")
-        self.lib_git_view = LibraryGitTab(self.logic)
-        self.lib_tabs.addTab(self.lib_git_view, Icons.get_icon(Icons.GIT, lib_icon_color), "Library Git")
         l_lib.addWidget(self.lib_tabs)
         lib_idx = self.tabs.addTab(self.lib_manager, Icons.get_icon(Icons.LIBRARY, icon_color), "Library")
         self._set_tab_accent(lib_idx, self._main_tab_color(lib_idx))
